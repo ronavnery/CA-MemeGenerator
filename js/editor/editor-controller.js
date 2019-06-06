@@ -18,13 +18,12 @@ function drawCanvas() {
 
 function printImgOnCanvas() {
     let img = new Image();
-    console.log(gMeme)
     img.src = gMeme.src;
     drawImageProp(gCtx, img, 0, 0, gCanvas.width, gCanvas.height)
 }
 
 function onTxtInput(txt) {
-    if (txt.length > 10) gLineHeight = 100;
+    if (txt.length > 10) gLineHeight += 100;
     draw(txt);
 }
 
