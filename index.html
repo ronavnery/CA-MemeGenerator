@@ -19,7 +19,7 @@
                 <li>About us</li>
             </ul>
         </nav>
-        <section class="search"><input id="search-input" list="search-list" type="text"
+        <section class="search"><input id="search-input" list="search-list" type="text" onchange
                 placeholder="Search..."></section>
         <datalist id="search-list">
         </datalist>
@@ -41,10 +41,10 @@
                 <button class="close-modal-button" onclick="hideEditorModal()">Close</button>
                 <div class="input-container">
                     <input type="text" placeholder="Text" onkeyup="onTxtInput(this.value)" />
-                    <canvas id="picker"></canvas>
+                    <!-- <canvas id="picker"></canvas> -->
                     
                 </div>
-                <input id="color" value="#54aedb">
+                <!-- <input id="color" value="#54aedb"> -->
             </div>
         </div>
     </section>
@@ -54,13 +54,12 @@
     <footer>
         Ron & Nathalie
     </footer>
-    <script src="html5kellycolorpicker.min.js"></script>
-
+    <!-- <script src="html5kellycolorpicker.min.js"></script> -->
     <script src="js/util/util.js"></script>
     <script src="js/editor/editor-controller.js"></script>
     <script src="js/main/main-controller.js"></script>
     <script src="js/main/main-service.js"></script>
-    <script src="lib/jquery/jquery.js"></script>
+    <script src="jquery/jquery.js"></script>
 </body>
 
 </html>
