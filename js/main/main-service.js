@@ -4,6 +4,7 @@ let gNextId = 1;
 let gImgs;
 let gMeme;
 let gSearchResults;
+let gColor = 'white';
 
 function createMeme(id, src) {
     return {
@@ -14,7 +15,7 @@ function createMeme(id, src) {
                 line: '',
                 size: 20,
                 align: 'left',
-                color: 'white'
+                color: gColor
             }
         ]
     }
@@ -86,4 +87,8 @@ function getKeywordsDataList(isUnique = true) {
             return keywords.indexOf(value) === idx;
         })
     } else return keywords;
+}
+
+function pickColor(color) {
+    gColor = color;
 }

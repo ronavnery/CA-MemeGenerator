@@ -35,10 +35,18 @@ function draw(content) {
 function drawText(txt, x, y) {
     gCtx.textAlign = 'center';
     gCtx.font = '40px Impact';
-    gCtx.lineWidth  = 5;
+    gCtx.lineWidth = 5;
     gCtx.strokeStyle = 'black';
-    gCtx.fillStyle = 'white';
+    gCtx.fillStyle = gColor;
     gCtx.lineJoin = 'round';
-    printAt(gCtx, txt, x, y, gCanvas.height-(gCanvas.height * 0.9), gCanvas.width-(gCanvas.width * 0.2))
+    printAt(gCtx, txt, x, y, gCanvas.height - (gCanvas.height * 0.9), gCanvas.width - (gCanvas.width * 0.2))
 }
 
+// function customColor() {
+//     $('#custom').ColorPicker(onShow);
+
+// }
+
+function onPickColor(color) {
+    pickColor(color);
+  }
