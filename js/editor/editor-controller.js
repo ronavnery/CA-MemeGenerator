@@ -22,10 +22,6 @@ function printImgOnCanvas() {
 }
 
 function onTxtInput(txt) {
-<<<<<<< HEAD
-    if (txt.length > 10) gLineHeight += 100;
-=======
->>>>>>> 0e75496c598c57dfb146db99dd72fc873a0e5d8a
     draw(txt);
 }
 
