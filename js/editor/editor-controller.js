@@ -23,6 +23,7 @@ function printImgOnCanvas() {
 }
 
 function onTxtInput(txt) {
+    console.log(txt);
     draw(txt);
 }
 
@@ -30,7 +31,10 @@ function draw(content) {
     gCtx.save();
     // const { offsetX, offsetY } = ev;
     console.log('entering');
+    drawCanvas();
+    printImgOnCanvas();
     drawText(content, gCanvas.width / 4, 50);
+
     gCtx.restore();
 }
 
