@@ -1,4 +1,6 @@
 body {
+    background-image: url('../img/background/blue.jpg');
+    background-size: cover;
     margin: 0;
     background-color: rgba(11, 121, 211, 0.8);
 }
