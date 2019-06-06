@@ -32,15 +32,15 @@
     </main>
 
     <section class="editor-modal">
-        <div class="modal-container">
-
+        <div class="modal-content">
+            <button class="close-modal-button" onclick="hideEditorModal()">Close</button>
             <div class="modal-container flex justify-center">
                 <canvas id="meme-canvas" width="400" height="400">
                     Update your browser to enjoy canvas!
                 </canvas>
-                <button class="close-modal-button" onclick="hideEditorModal()">Close</button>
                 <div class="input-container">
-                    <input type="text" placeholder="Text" onkeyup="onTxtInput(this.value)" />
+                    <input type="text" data-position="top" placeholder="Top Text" onkeyup="onTxtInput(this)" />
+                    <input type="text" data-position="bottom" placeholder="Bottom Text" onkeyup="onTxtInput(this)" />
                     <!-- <canvas id="picker"></canvas> -->
                     
                 </div>

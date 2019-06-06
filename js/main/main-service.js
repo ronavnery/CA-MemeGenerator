@@ -11,7 +11,15 @@ function createMeme(id, src) {
         src: src,
         txts: [
             {
-                line: '',
+                position: 'top',
+                txt: '',
+                size: 20,
+                align: 'left',
+                color: 'white'
+            },
+            {
+                position: 'bottom',
+                txt: '',
                 size: 20,
                 align: 'left',
                 color: 'white'
@@ -86,4 +94,14 @@ function getKeywordsDataList(isUnique = true) {
             return keywords.indexOf(value) === idx;
         })
     } else return keywords;
+}
+
+// Editor
+
+function setTopText(txt) {
+    gMeme.txts[0].txt = txt;
+}
+
+function setBottomText(txt) {
+    gMeme.txts[1].txt = txt;
 }
