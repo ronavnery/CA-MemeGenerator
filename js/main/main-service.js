@@ -2,7 +2,22 @@
 
 let gNextId = 1;
 let gImgs;
+let gMeme;
 
+
+function createMeme(id) {
+    gMeme = {
+        selectedImgId: id,
+        txts: [
+            {
+                line: '',
+                size: 20,
+                align: 'left',
+                color: 'white'
+            }
+        ]
+    }
+}
 
 function createImgs() {
     return [
@@ -20,14 +35,8 @@ function createImg(src, keywords) {
     }
 }
 
-// var gMeme = {
-//     selectedImgId: 5,
-//     txts: [
-//         {
-//             line: 'I never eat Falafel',
-//             size: 20,
-//             align: 'left',
-//             color: 'red'
-//         }
-//     ]
-// }
+function findImg(id) {
+    return gImgs.find(img => { return (img.id === id) })
+}
+
+

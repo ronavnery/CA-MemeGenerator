@@ -6,8 +6,11 @@ function onInit() {
 }
 
 function onImageClick(el) {
-
+    let id = el.getAttribute('data-id');
+    createMeme(id);
+    window.open('editor.html');
 }
+
 
 function renderGallery() {
     let elGallery = document.querySelector('.gallery');
