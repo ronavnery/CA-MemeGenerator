@@ -100,3 +100,23 @@ canvas {
 .align-center {
     align-items: center;
 }
+
+.input-container {
+margin: 20px;
+padding: 20px;
+}
+
+.close-modal-button{
+    width: 50px;
+    height: 20px;
+    display: block;
+    margin: 15px;
+}
+
+.editor-modal input {
+    color: white;
+    background: none;
+    border: none;
+    border-bottom: 2px white solid;
+    outline-style: none;
+}
