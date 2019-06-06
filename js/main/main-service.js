@@ -42,12 +42,6 @@ function getImagesForDisplay() {
     } else return gImgs;
 }
 
-
-// function findImg(id) {
-//     return gImgs.find(img => { return (img.id === id) })
-// }
-
-
 // Search Function
 
 function searchImg(searchTerm) {
@@ -58,6 +52,6 @@ function searchImg(searchTerm) {
 
 // Canvas Service
 
-function changeEl(name) {
-    gCurrElement = name;
-}
+// function changeEl(name) {
+//     gCurrElement = name;
+// }

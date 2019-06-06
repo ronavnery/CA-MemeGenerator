@@ -3,7 +3,12 @@
 let gCanvas;
 let gCtx;
 let gTxt;
-let gCurrElement;
+
+
+function initEditor() {
+    drawCanvas()
+    printImgOnCanvas()
+}
 
 function drawCanvas() {
     gCanvas = document.querySelector('canvas')
@@ -17,43 +22,29 @@ function printImgOnCanvas() {
     drawImageProp(gCtx, img, 0, 0, gCanvas.width, gCanvas.height)
 }
 
-
-function initEditor() {
-    drawCanvas()
-    printImgOnCanvas()
+function onTxtInput(txt) {
+    draw(txt);
 }
 
-
-
-function draw(ev) {
+function draw(content) {
     gCtx.save();
-    const { offsetX, offsetY } = ev;
-    switch (gCurrElement) {
-        case 'text':
-            drawText(gTxt, 250, 50);
-            break;
-
-    }
+    // const { offsetX, offsetY } = ev;
+    console.log('entering');
+    drawText(content, gCanvas.width / 4, 50);
     gCtx.restore();
 }
 
-function pickTxt(txt) {
-    gTxt = txt;
-}
+// function pickTxt(txt) {
+//     gTxt = txt;
+// }
 
 function drawText(txt, x, y) {
-    gCtx.fillStyle = 'white';
     gCtx.strokeStyle = 'white';
-    gCtx.font = '17px Arial';
+    gCtx.font = '40px Impact';
     gCtx.strokeText(txt, x, y);
-}
-
-function onText(txt) {
-    console.log(txt);
-    pickTxt(txt);
+    gCtx.textAlign = 'Center';
 }
 
 function onChangeEl(elName) {
     changeEl(elName)
 }
-
