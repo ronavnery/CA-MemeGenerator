@@ -28,14 +28,13 @@ function onTxtInput(txt) {
 }
 
 function draw(content) {
-    gCtx.save();
+    // gCtx.restore();
     // const { offsetX, offsetY } = ev;
     console.log('entering');
     drawCanvas();
     printImgOnCanvas();
-    drawText(content, gCanvas.width / 4, 50);
-
-    gCtx.restore();
+    drawText(content, gCanvas.width / 2, 50);
+    // gCtx.save();
 }
 
 // function pickTxt(txt) {
@@ -43,12 +42,12 @@ function draw(content) {
 // }
 
 function drawText(txt, x, y) {
+    gCtx.textAlign = 'center';
     gCtx.strokeStyle = 'white';
     gCtx.font = '40px Impact';
     gCtx.strokeText(txt, x, y);
-    gCtx.textAlign = 'Center';
 }
 
-function onChangeEl(elName) {
-    changeEl(elName)
-}
+// function onChangeEl(elName) {
+//     changeEl(elName)
+// }
