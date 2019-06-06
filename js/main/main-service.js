@@ -3,7 +3,7 @@
 let gNextId = 1;
 let gImgs;
 let gMeme;
-
+let gSearchResults;
 
 function createMeme(id, src) {
      return {
@@ -36,14 +36,27 @@ function createImg(src, keywords) {
     }
 }
 
-function findImg(id) {
-    return gImgs.find(img => { return (img.id === id) })
+function getImagesForDisplay() {
+    if (gIsSearchOn) {
+        return gSearchResults;
+    } else return gImgs;
 }
 
 
+// function findImg(id) {
+//     return gImgs.find(img => { return (img.id === id) })
+// }
 
 
-// canvas service
+// Search Function
+
+function searchImg(searchTerm) {
+    gSearchResults = gImgs.filter(img => {
+        return img.keywords.join().includes(searchTerm);
+    })
+}
+
+// Canvas Service
 
 function changeEl(name) {
     gCurrElement = name;
