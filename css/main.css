@@ -1,4 +1,6 @@
 body {
+    background-image: url('../img/background/blue.jpg');
+    background-size: cover;
     margin: 0;
     background-color: rgba(11, 121, 211, 0.8);
 }
@@ -22,6 +24,8 @@ li {
 
 /* Layout */
 
+/* Header */
+
 header {
     height: 10vh;
     border: 1px solid black;
@@ -31,22 +35,22 @@ nav {
     height: max-content;
 }
 
+.input-container {
+    margin: 20px;
+    padding: 20px;
+}
+
+/* Gallery */
+
 .gallery {
     max-width: 80vw;
     margin: 0 auto;
     padding: 10px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px,150px));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 150px));
     grid-template-rows: repeat(auto-fill, minmax(100px, 150px));
     grid-gap: 5px;
 }
-
-footer {
-    width: max-content;
-    margin: 0 auto;
-}
-
-/* Gallery */
 
 .gallery-item {
     border: 1px solid black;
@@ -59,6 +63,14 @@ footer {
     object-fit: cover;
 }
 
+/* Footer */
+
+footer {
+    width: max-content;
+    margin: 0 auto;
+}
+
+
 /* Editor */
 
 .editor-modal {
@@ -68,8 +80,26 @@ footer {
     width: 100vw;
     height: 100vh;
     margin: 0 auto;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     border: 1px solid black;
+}
+
+.close-modal-button {
+    width: 50px;
+    height: 20px;
+    margin: 15px;
+}
+
+.editor-modal input {
+    color: white;
+    background: none;
+    border: none;
+    border-bottom: 2px white solid;
+    outline-style: none;
+}
+
+.modal-content {
+    text-align: center;
 }
 
 /* Canvas */
@@ -98,24 +128,4 @@ canvas {
 
 .align-center {
     align-items: center;
-}
-
-.input-container {
-margin: 20px;
-padding: 20px;
-}
-
-.close-modal-button{
-    width: 50px;
-    height: 20px;
-    display: block;
-    margin: 15px;
-}
-
-.editor-modal input {
-    color: white;
-    background: none;
-    border: none;
-    border-bottom: 2px white solid;
-    outline-style: none;
 }

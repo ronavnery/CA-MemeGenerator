@@ -12,7 +12,15 @@ function createMeme(id, src) {
         src: src,
         txts: [
             {
-                line: '',
+                position: 'top',
+                txt: '',
+                size: 20,
+                align: 'left',
+                color: 'white'
+            },
+            {
+                position: 'bottom',
+                txt: '',
                 size: 20,
                 align: 'left',
                 color: gColor
@@ -91,4 +99,13 @@ function getKeywordsDataList(isUnique = true) {
 
 function pickColor(color) {
     gColor = color;
+}
+
+// Editor
+function setTopText(txt) {
+    gMeme.txts[0].txt = txt;
+}
+
+function setBottomText(txt) {
+    gMeme.txts[1].txt = txt;
 }
