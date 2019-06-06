@@ -7,7 +7,9 @@ function onInit() {
 
 function onImageClick(el) {
     let id = el.getAttribute('data-id');
-    createMeme(id);
+    let src = el.getAttribute('src');
+    console.log(id,src)
+    gMeme = createMeme(id, src);
     window.open('editor.html');
 }
 

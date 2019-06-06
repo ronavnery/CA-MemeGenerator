@@ -5,9 +5,10 @@ let gImgs;
 let gMeme;
 
 
-function createMeme(id) {
-    gMeme = {
+function createMeme(id, src) {
+     return {
         selectedImgId: id,
+        src: src,
         txts: [
             {
                 line: '',
@@ -38,5 +39,7 @@ function createImg(src, keywords) {
 function findImg(id) {
     return gImgs.find(img => { return (img.id === id) })
 }
+
+
 
 
