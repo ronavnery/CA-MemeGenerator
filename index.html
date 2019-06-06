@@ -10,6 +10,7 @@
 </head>
 
 <body onload="onInit()">
+
     <header>
         Header
         <nav>
@@ -28,10 +29,26 @@
         </section>
     </main>
 
+    <section class="editor-modal">
+        <button onclick="hideEditorModal()">Close</button>
+        <div class="modal-container flex justify-center">
+            <canvas onmousedown="draw(event)" id="meme-canvas" width="500" height="500">
+                Update your browser to enjoy canvas!
+            </canvas>
+            <input type="text" placeholder="Text" value="Type..." onchange="onText(this.value)" />
+            <button class="btn btn-primary" onclick="changeEl('text')">Text</button>
+        </div>
+    </section>
+
+
+
+
     <footer>
         Copyright
     </footer>
 
+    <script src="js/util/util.js"></script>
+    <script src="js/editor/editor-controller.js"></script>
     <script src="js/main/main-controller.js"></script>
     <script src="js/main/main-service.js"></script>
 </body>
