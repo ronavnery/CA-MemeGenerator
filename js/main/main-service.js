@@ -49,9 +49,3 @@ function searchImg(searchTerm) {
         return img.keywords.join().includes(searchTerm);
     })
 }
-
-// Canvas Service
-
-// function changeEl(name) {
-//     gCurrElement = name;
-// }
