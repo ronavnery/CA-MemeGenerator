@@ -28,26 +28,16 @@ function onTxtInput(txt) {
 }
 
 function draw(content) {
-    // gCtx.restore();
-    // const { offsetX, offsetY } = ev;
-    console.log('entering');
     drawCanvas();
     printImgOnCanvas();
-    drawText(content, gCanvas.width / 2, gLineHeight);
-    // gCtx.save();
+    drawText(content, gCanvas.width / 2, 50);
 }
 
-// function pickTxt(txt) {
-//     gTxt = txt;
-// }
 
 function drawText(txt, x, y) {
     gCtx.textAlign = 'center';
     gCtx.strokeStyle = 'white';
     gCtx.font = '40px Impact';
-    gCtx.strokeText(txt, x, y);
+    printAt(gCtx, txt, x, y, 50, 400)
 }
 
-// function onChangeEl(elName) {
-//     changeEl(elName)
-// }

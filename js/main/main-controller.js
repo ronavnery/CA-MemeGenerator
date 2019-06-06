@@ -24,7 +24,6 @@ function onImageClick(el) {
     let id = el.getAttribute('data-id');
     let src = el.getAttribute('src');
     gMeme = createMeme(id, src);
-    // window.open('editor.html');
     showEditorModal();
 }
 

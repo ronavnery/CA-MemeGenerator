@@ -47,3 +47,26 @@ function drawImageProp(ctx, img, x, y, w, h, offsetX, offsetY) {
     // fill image in dest. rectangle
     ctx.drawImage(img, cx, cy, cw, ch,  x, y, w, h);
 }
+
+function printAt(ctx, text, x, y, lineHeight, fitWidth)
+{
+    fitWidth = fitWidth || 0;
+    
+    if (fitWidth <= 0)
+    {
+         ctx.strokeText( text, x, y );
+        return;
+    }
+    
+    for (var idx = 1; idx <= text.length; idx++)
+    {
+        var str = text.substr(0, idx);
+        if (ctx.measureText(str).width > fitWidth)
+        {
+            ctx.strokeText( text.substr(0, idx-1), x, y );
+            printAt(ctx, text.substr(idx-1), x, y + lineHeight, lineHeight,  fitWidth);
+            return;
+        }
+    }
+    ctx.strokeText( text, x, y );
+}
