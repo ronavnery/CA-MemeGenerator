@@ -5,12 +5,12 @@ let gCtx;
 let gTxt;
 let gCurrElement;
 
-function drawCanvas(){
+function drawCanvas() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d');
 }
 
-function printImgOnCanvas(){
+function printImgOnCanvas() {
     let img = new Image();
     console.log(gMeme)
     img.src = gMeme.src;
@@ -31,7 +31,7 @@ function draw(ev) {
     const { offsetX, offsetY } = ev;
     switch (gCurrElement) {
         case 'text':
-            drawText(gTxt, offsetX, offsetY);
+            drawText(gTxt, 250, 50);
             break;
 
     }
@@ -44,17 +44,17 @@ function pickTxt(txt) {
 
 function drawText(txt, x, y) {
     gCtx.fillStyle = 'white';
-    gCtx.strokeStyle = 'black';
+    gCtx.strokeStyle = 'white';
     gCtx.font = '17px Arial';
     gCtx.strokeText(txt, x, y);
 }
 
 function onText(txt) {
     console.log(txt);
-
     pickTxt(txt);
 }
 
 function onChangeEl(elName) {
     changeEl(elName)
 }
+

@@ -35,11 +35,10 @@
             <canvas onmousedown="draw(event)" id="meme-canvas" width="500" height="500">
                 Update your browser to enjoy canvas!
             </canvas>
-            <input type="text" placeholder="Text" value="Type..." onchange="onText(this.value)" />
+            <input type="text" placeholder="Text" value="Type..." onkeydown="onText(this.value)" />
             <button class="btn btn-primary" onclick="changeEl('text')">Text</button>
         </div>
     </section>
-
 
 
 
