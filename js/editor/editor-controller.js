@@ -26,15 +26,17 @@ function onTxtInput(el) {
     let position = el.getAttribute('data-position');
     if (position === 'top') {
         setTopText(txt);
+        // Nathalie: Add functions for alignment(left-right), alignment(up-down), color, font-family,
         draw();
     }
     else {
         setBottomText(txt);
+        // Nathalie: Add functions for alignment(left-right), alignment(up-down), color, font-family,
         draw();
     }
 }
 
-
+// Nathalie: Add function to clear line from gMeme model and draw 
 
 function draw() {
     drawCanvas();
