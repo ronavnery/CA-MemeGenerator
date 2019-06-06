@@ -4,30 +4,32 @@ let gNextId = 1;
 let gImgs;
 let gMeme;
 let gSearchResults;
-let gColor = 'white';
+// let gColor = 'white';
+let gColorTop = 'white'
+let gColorBottom = 'white';
 
-function createMeme(id, src) {
-    return {
-        selectedImgId: id,
-        src: src,
-        txts: [
-            {
-                position: 'top',
-                txt: '',
-                size: 20,
-                align: 'left',
-                color: 'white'
-            },
-            {
-                position: 'bottom',
-                txt: '',
-                size: 20,
-                align: 'left',
-                color: gColor
-            }
-        ]
+    function createMeme(id, src) {
+        return {
+            selectedImgId: id,
+            src: src,
+            txts: [
+                {
+                    position: 'top',
+                    txt: '',
+                    size: 20,
+                    align: 'left',
+                    color: gColorTop
+                },
+                {
+                    position: 'bottom',
+                    txt: '',
+                    size: 20,
+                    align: 'left',
+                    color: gColorBottom
+                }
+            ]
+        }
     }
-}
 
 function createImgs() {
     return [
@@ -91,14 +93,23 @@ function getKeywordsDataList(isUnique = true) {
     })
     // Remove duplicates:
     if (isUnique) {
-        return keywords.filter((value, idx, keywords)=>{
+        return keywords.filter((value, idx, keywords) => {
             return keywords.indexOf(value) === idx;
         })
     } else return keywords;
 }
 
-function pickColor(color) {
-    gColor = color;
+function pickColor(color, txtLoc) {
+    // gColor = color;
+    let currLoc;
+    if ('color-picked-top' === txtLoc) {
+        gColorTop = color
+        currLoc = color
+    } else{
+        gColorBottom = color
+        currLoc = color
+    } 
+return currLoc
 }
 
 // Editor

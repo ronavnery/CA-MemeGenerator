@@ -53,7 +53,7 @@ function drawText(txt, x, y) {
     gCtx.font = '40px Impact';
     gCtx.lineWidth = 5;
     gCtx.strokeStyle = 'black';
-    gCtx.fillStyle = gColor;
+    gCtx.fillStyle = gColorTop;
     gCtx.lineJoin = 'round';
     printAt(gCtx, txt, x, y, gCanvas.height-(gCanvas.height * 0.875), gCanvas.width-(gCanvas.width * 0.125))
 }
@@ -63,6 +63,8 @@ function drawText(txt, x, y) {
 
 // }
 
-function onPickColor(color) {
-    pickColor(color);
+function onPickColor(color, txtLoc) {
+    console.log(color, txtLoc);
+    
+    pickColor(color, txtLoc);
   }
