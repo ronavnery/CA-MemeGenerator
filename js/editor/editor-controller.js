@@ -1,24 +1,59 @@
 'use strict'
 
 let gCanvas;
-let gCtx; 
+let gCtx;
+let gTxt;
+let gCurrElement;
 
-function onInitEditor(){
+function onInitEditor() {
     drawCanvas()
     printImgOnCanvas()
 }
 
-function drawCanvas(){
+function drawCanvas() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d');
-    
+
 }
 
-function printImgOnCanvas(){
-    debugger
+function printImgOnCanvas() {
     let img = new Image();
     console.log(gMeme)
     img.src = gMeme.src;
-    gCtx.drawImage(img, 0, 0, gCanvas.width , gCanvas.height)
-    
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+
+}
+
+// 
+function draw(ev) {
+    gCtx.save();
+    const { offsetX, offsetY } = ev;
+    switch (gCurrElement) {
+        case 'text':
+            drawText(gTxt, offsetX, offsetY);
+            break;
+
+    }
+    gCtx.restore();
+}
+
+function pickTxt(txt) {
+    gTxt = txt;
+}
+
+function drawText(txt, x, y) {
+    gCtx.fillStyle = 'white';
+    gCtx.strokeStyle = 'black';
+    gCtx.font = '17px Arial';
+    gCtx.strokeText(txt, x, y);
+}
+
+function onText(txt) {
+    console.log(txt);
+
+    pickTxt(txt);
+}
+
+function onChangeEl(elName) {
+    changeEl(elName)
 }

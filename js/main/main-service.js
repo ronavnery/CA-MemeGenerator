@@ -43,3 +43,8 @@ function findImg(id) {
 
 
 
+// canvas service
+
+function changeEl(name) {
+    gCurrElement = name;
+}

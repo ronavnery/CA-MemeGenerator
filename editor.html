@@ -10,9 +10,12 @@
 </head>
 
 <body onload="onInitEditor()">
-    <canvas id="meme-canvas" width="500" height="500">
+    <canvas onmousedown="draw(event)" id="meme-canvas" width="500" height="500">
         Update your browser to enjoy canvas!
     </canvas>
+    <input type="text" placeholder="Text" value="Type..." onchange="onText(this.value)" />
+
+    <button class="btn btn-primary" onclick="changeEl('text')">Text</button>
 
     <script src="js/main/main-service.js"></script>
     <script src="js/editor/editor-controller.js"></script>
