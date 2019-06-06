@@ -18,14 +18,13 @@ function printImgOnCanvas(){
 }
 
 
-
-function onInitEditor() {
+function initEditor() {
     drawCanvas()
     printImgOnCanvas()
 }
 
 
-// 
+
 function draw(ev) {
     gCtx.save();
     const { offsetX, offsetY } = ev;

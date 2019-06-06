@@ -1,5 +1,17 @@
 body {
     margin: 0;
+    background-color: rgba(11, 121, 211, 0.8);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: max-content;
+}
+
+li {
+    margin: 0 20px;
 }
 
 .main-container {
@@ -9,6 +21,15 @@ body {
 }
 
 /* Layout */
+
+header {
+    height: 10vh;
+    border: 1px solid black;
+}
+
+nav {
+    height: max-content;
+}
 
 .gallery {
     max-width: 80vw;
@@ -20,6 +41,13 @@ body {
     grid-template-rows: repeat(auto-fill, minmax(100px, 150px));
     grid-gap: 5px;
 }
+
+footer {
+    width: max-content;
+    margin: 0 auto;
+}
+
+/* Gallery */
 
 .gallery-item {
     border: 1px solid black;

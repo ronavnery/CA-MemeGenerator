@@ -1,9 +1,23 @@
 'use strict';
 
+var gIsSearchOn;
+
 function onInit() {
     gImgs = createImgs();
     renderGallery();
     hideEditorModal();
+    addEventListeners();
+}
+
+function addEventListeners() {
+    let elSearchInput = document.querySelector('#search-input');
+    elSearchInput.addEventListener('input', function () {
+        let searchTerm = this.value;
+        if (searchTerm.length) gIsSearchOn = true;
+        else gIsSearchOn = false;
+        searchImg(searchTerm)
+        renderGallery();
+    });
 }
 
 function onImageClick(el) {
@@ -23,14 +37,14 @@ function showEditorModal() {
     let elEditModal = document.querySelector('.editor-modal');
     elEditModal.classList.remove('hide');
 
-    drawCanvas();
-    printImgOnCanvas();
+    initEditor();
 }
 
 function renderGallery() {
     let elGallery = document.querySelector('.gallery');
     let htmlStr = '';
-    gImgs.forEach(img => {
+    let images = getImagesForDisplay();
+    images.forEach(img => {
         htmlStr += genGalleryItemHtml(img.id, img.src);
     })
     elGallery.innerHTML = htmlStr;
