@@ -3,16 +3,29 @@
 function onInit() {
     gImgs = createImgs();
     renderGallery();
+    hideEditorModal();
 }
 
 function onImageClick(el) {
     let id = el.getAttribute('data-id');
     let src = el.getAttribute('src');
-    console.log(id,src)
     gMeme = createMeme(id, src);
-    window.open('editor.html');
+    // window.open('editor.html');
+    showEditorModal();
 }
 
+function hideEditorModal() {
+    let elEditModal = document.querySelector('.editor-modal');
+    elEditModal.classList.add('hide');
+}
+
+function showEditorModal() {
+    let elEditModal = document.querySelector('.editor-modal');
+    elEditModal.classList.remove('hide');
+
+    drawCanvas();
+    printImgOnCanvas();
+}
 
 function renderGallery() {
     let elGallery = document.querySelector('.gallery');

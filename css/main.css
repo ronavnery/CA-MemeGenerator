@@ -8,6 +8,8 @@ body {
     border: 1px solid black;
 }
 
+/* Layout */
+
 .gallery {
     max-width: 80vw;
     max-height: 100vh;
@@ -28,4 +30,47 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* Editor */
+
+.editor-modal {
+    position: fixed;
+    top: 0;
+    /* padding: 50px; */
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: rgba(0,0,0,0.8);
+    border: 1px solid black;
+}
+
+/* Canvas */
+
+canvas {
+    border: 1px solid white;
+    /* width: 100px;
+    height: 100px; */
+}
+
+/* Utils  */
+
+.hide {
+    display: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
 }
