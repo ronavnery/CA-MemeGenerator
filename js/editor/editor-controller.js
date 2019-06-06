@@ -3,7 +3,6 @@
 let gCanvas;
 let gCtx;
 let gTxt;
-let gLineHeight = 50;
 
 
 function initEditor() {
@@ -23,7 +22,6 @@ function printImgOnCanvas() {
 }
 
 function onTxtInput(txt) {
-    if (txt.length > 10) gLineHeight = 100;
     draw(txt);
 }
 
@@ -36,8 +34,11 @@ function draw(content) {
 
 function drawText(txt, x, y) {
     gCtx.textAlign = 'center';
-    gCtx.strokeStyle = 'white';
     gCtx.font = '40px Impact';
-    printAt(gCtx, txt, x, y, 50, 400)
+    gCtx.lineWidth  = 5;
+    gCtx.strokeStyle = 'black';
+    gCtx.fillStyle = 'white';
+    gCtx.lineJoin = 'round';
+    printAt(gCtx, txt, x, y, gCanvas.height-(gCanvas.height * 0.9), gCanvas.width-(gCanvas.width * 0.2))
 }
 

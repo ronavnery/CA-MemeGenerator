@@ -19,7 +19,9 @@
                 <li>About us</li>
             </ul>
         </nav>
-        <section class="search"><input id="search-input" type="text" onchange placeholder="Search..."></section>
+        <section class="search"><input id="search-input" list="search-list" type="text" onchange placeholder="Search..."></section>
+        <datalist id="search-list">
+        </datalist>
     </header>
 
     <main class="main-container">
@@ -31,7 +33,7 @@
     <section class="editor-modal">
         <button onclick="hideEditorModal()">Close</button>
         <div class="modal-container flex justify-center">
-            <canvas id="meme-canvas" width="500" height="500">
+            <canvas id="meme-canvas" width="400" height="400">
                 Update your browser to enjoy canvas!
             </canvas>
             <input type="text" placeholder="Text" onkeyup="onTxtInput(this.value)" />

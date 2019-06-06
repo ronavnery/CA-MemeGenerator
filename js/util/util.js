@@ -54,7 +54,8 @@ function printAt(ctx, text, x, y, lineHeight, fitWidth)
     
     if (fitWidth <= 0)
     {
-         ctx.strokeText( text, x, y );
+        ctx.strokeText(text, x, y);
+        ctx.fillText(text, x, y);
         return;
     }
     
@@ -64,9 +65,11 @@ function printAt(ctx, text, x, y, lineHeight, fitWidth)
         if (ctx.measureText(str).width > fitWidth)
         {
             ctx.strokeText( text.substr(0, idx-1), x, y );
+            ctx.fillText( text.substr(0, idx-1), x, y );
             printAt(ctx, text.substr(idx-1), x, y + lineHeight, lineHeight,  fitWidth);
             return;
         }
     }
-    ctx.strokeText( text, x, y );
+    ctx.strokeText(text, x, y);
+    ctx.fillText(text, x, y);
 }

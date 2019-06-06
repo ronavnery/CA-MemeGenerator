@@ -7,6 +7,7 @@ function onInit() {
     renderGallery();
     hideEditorModal();
     addEventListeners();
+    renderDataList();
 }
 
 function addEventListeners() {
@@ -53,4 +54,15 @@ function genGalleryItemHtml(id, src) {
     return `<section class="gallery-item">
     <img onclick="onImageClick(this)" data-id="${id}" src="${src}">
     </section>`
+}
+
+function renderDataList() {
+    let elDataList = document.querySelector('datalist');
+    let strHtml = '';
+    gImgs.forEach(img=> {
+        img.keywords.forEach(keyword=> {
+            strHtml += `<option value="${keyword}">`
+        })
+    })
+    elDataList.innerHTML = strHtml;
 }
