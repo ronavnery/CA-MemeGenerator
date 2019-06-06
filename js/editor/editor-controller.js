@@ -3,6 +3,7 @@
 let gCanvas;
 let gCtx;
 let gTxt;
+let gLineHeight = 50;
 
 
 function initEditor() {
@@ -23,7 +24,7 @@ function printImgOnCanvas() {
 }
 
 function onTxtInput(txt) {
-    console.log(txt);
+    if (txt.length > 10) gLineHeight = 100;
     draw(txt);
 }
 
@@ -33,7 +34,7 @@ function draw(content) {
     console.log('entering');
     drawCanvas();
     printImgOnCanvas();
-    drawText(content, gCanvas.width / 2, 50);
+    drawText(content, gCanvas.width / 2, gLineHeight);
     // gCtx.save();
 }
 
