@@ -13,7 +13,7 @@ function onInit() {
 function addEventListeners() {
     let elSearchInput = document.querySelector('#search-input');
     elSearchInput.addEventListener('input', function () {
-        let searchTerm = this.value;
+        let searchTerm = (this.value).toLowerCase();
         if (searchTerm.length) gIsSearchOn = true;
         else gIsSearchOn = false;
         searchImg(searchTerm)
@@ -59,10 +59,10 @@ function genGalleryItemHtml(id, src) {
 function renderDataList() {
     let elDataList = document.querySelector('datalist');
     let strHtml = '';
-    gImgs.forEach(img=> {
-        img.keywords.forEach(keyword=> {
-            strHtml += `<option value="${keyword}">`
-        })
+    let keywords = getKeywordsDataList();
+    keywords.forEach(keyword=> {
+        strHtml += `<option value="${keyword}">`
     })
     elDataList.innerHTML = strHtml;
 }
+

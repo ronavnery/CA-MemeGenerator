@@ -6,7 +6,7 @@ let gMeme;
 let gSearchResults;
 
 function createMeme(id, src) {
-     return {
+    return {
         selectedImgId: id,
         src: src,
         txts: [
@@ -23,7 +23,7 @@ function createMeme(id, src) {
 function createImgs() {
     return [
         createImg('img/memes/african-dance.jpg', ['cute', 'happy']),
-        createImg('img/memes/Ancient-Aliens.jpg', ['weird','happy', 'funny']),
+        createImg('img/memes/Ancient-Aliens.jpg', ['weird', 'happy', 'funny']),
         createImg('img/memes/baby-suprised.jpg', ['cute', 'baby', 'funny']),
         createImg('img/memes/basketball-kiss.jpg', ['funny', 'sport', 'bascketball']),
         createImg('img/memes/dog-stretch.jpg', ['cute', 'animals']),
@@ -45,8 +45,8 @@ function createImgs() {
         createImg('img/memes/survivor.jpg', ['survivor', 'tv', 'series']),
         createImg('img/memes/thinking-purple.jpg', ['purple', 'Willi', 'Wanka', 'movie']),
         createImg('img/memes/toy-story.jpg', ['toy', 'story', 'movie']),
-        createImg('img/memes/trump-rock.jpg', ['trump','funny', 'politics']),
-        createImg('img/memes/trump.jpg', ['trump','funny', 'politics']),
+        createImg('img/memes/trump-rock.jpg', ['trump', 'funny', 'politics']),
+        createImg('img/memes/trump.jpg', ['trump', 'funny', 'politics']),
     ]
 }
 
@@ -70,4 +70,20 @@ function searchImg(searchTerm) {
     gSearchResults = gImgs.filter(img => {
         return img.keywords.join().includes(searchTerm);
     })
+}
+
+function getKeywordsDataList(isUnique = true) {
+    let keywords = [];
+    // Get all keywords from model
+    gImgs.forEach(img => {
+        img.keywords.forEach(keyword => {
+            keywords.push(keyword);
+        })
+    })
+    // Remove duplicates:
+    if (isUnique) {
+        return keywords.filter((value, idx, keywords)=>{
+            return keywords.indexOf(value) === idx;
+        })
+    } else return keywords;
 }
