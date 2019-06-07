@@ -93,7 +93,6 @@ function getKeywordsDataList(isUnique = true) {
             keywords.push(keyword);
         })
     })
-    
     // Remove duplicates:
     if (isUnique) {
         return keywords.filter((value, idx, keywords) => {
@@ -104,7 +103,8 @@ function getKeywordsDataList(isUnique = true) {
 
 function pickColor(color) {
      if(color === undefined) gCurrLine.color
-    else gCurrLine.color = color;
+    else if (gCurrLine === undefined) gCurrLine = gMeme.txts[0];
+    gCurrLine.color = color
     draw();
 }
 

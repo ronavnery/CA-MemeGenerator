@@ -28,7 +28,7 @@ function onTxtInput(el) {
     if (position === 'top') getCurrLineObj(gMeme.txts[0])
     else getCurrLineObj(gMeme.txts[1])
     // Nathalie: Add functions for alignment(left-right), alignment(up-down), color, font-family,
-    pickColor()
+    onPickColor(gCurrLine.color)
     setTxt(txt)
     draw();
 }
