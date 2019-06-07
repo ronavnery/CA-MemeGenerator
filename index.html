@@ -36,11 +36,11 @@
         <div class="modal-content">
             <button class="close-modal-button" onclick="hideEditorModal()">Close</button>
             <div class="modal-container flex justify-center">
-                <canvas id="meme-canvas" width="400" height="400" onclick="dragText(event)">
+                <canvas id="meme-canvas" width="400" height="400" onclick="onClickCanvas(event)">
                     Update your browser to enjoy canvas!
                 </canvas>
                 <div class="input-container flex flex-column">
-                    <input type="text" id="meme-text-input" placeholder="Text" onkeyup="onTxtInput(this)" />
+                    <input type="text" id="meme-text-input" id="theText" placeholder="Text" onkeyup="onTxtInput(this)" />
                     <input class="jscolor {hash:true}" value="#ffffff" onchange="onPickColor(this.value)">
                     <div class="font-size-container">
                     <button id="bigger" onclick="changeFontSize(this.id)"></button>
@@ -69,7 +69,7 @@
         Ron & Nathalie
     </footer>
 
-    
+    <script src="jquery/jquery.js"></script>
     <script src="js/editor/jscolor.js"></script>
     <script src="js/util/util.js"></script>
     <script src="js/editor/editor-controller.js"></script>

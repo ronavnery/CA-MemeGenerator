@@ -153,3 +153,11 @@ canvas {
 .align-center {
     align-items: center;
 }
+
+
+
+/* Drag try */
+
+#theText {
+    width:10em;
+}
