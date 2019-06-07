@@ -34,7 +34,7 @@ let gCurrLine;
             ]
         }
     }
-}
+
 
 
 function createImgs() {
@@ -105,12 +105,15 @@ function getKeywordsDataList(isUnique = true) {
     } else return keywords;
 }
 
+// NATHALIE: Your changes are in comment, I didnt wont to delete just yet until u check again
+// It didnt work when i tried.
+
 function pickColor(color) {
-    //  if(color === undefined) gCurrLine.color
-    // else if (gCurrLine === undefined) gCurrLine = gMeme.txts[0];
-    // gCurrLine.color = color
-    if (color === undefined) gCurrLine.color
-    else gCurrLine.color = color;
+     if(color === undefined) gCurrLine.color
+    else if (gCurrLine === undefined) gCurrLine = gMeme.txts[0];
+    gCurrLine.color = color
+    // if (color === undefined) gCurrLine.color
+    // else gCurrLine.color = color;
 
     draw();
 }
