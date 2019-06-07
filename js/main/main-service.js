@@ -6,7 +6,7 @@ let gMeme;
 let gSearchResults;
 let gCurrLine;
 
-    function createMeme(id, src, color) {
+    function createMeme(id, src) {
         return {
             selectedImgId: id,
             src: src,
@@ -16,6 +16,7 @@ let gCurrLine;
                     locX: gCanvas.width / 2,
                     locY: gCanvas.height * 0.125,
                     txt: '',
+                    family: 'Impact',
                     size: 20,
                     align: 'left',
                     color: 'white'
@@ -25,6 +26,7 @@ let gCurrLine;
                     locX: gCanvas.width / 2,
                     locY: gCanvas.height * 0.875,
                     txt: '',
+                    family: 'Impact',
                     size: 20,
                     align: 'left',
                     color: 'white'
@@ -108,8 +110,6 @@ function pickColor(color) {
     draw();
 }
 
-
-
 function getCurrLineObj(line){
     gCurrLine = line
 }
@@ -117,3 +117,23 @@ function getCurrLineObj(line){
 function setTxt(txt){
     gCurrLine.txt = txt
 }
+
+function pickFamily(family){
+    gCurrLine.family = family
+    draw()
+}
+
+// I almost sure this function sould be im main-service (it was at editor-controller)
+// If im wrong you can take it back.
+function drawText(txt, x, y, color, family) {
+    gCtx.restore()
+    gCtx.textAlign = 'center';
+    gCtx.font = `40px ${family}`;
+    gCtx.lineWidth = 5;
+    gCtx.strokeStyle = 'black';
+    gCtx.fillStyle = color;
+    gCtx.lineJoin = 'round';
+    gCtx.save()
+    printAt(gCtx, txt, x, y, gCanvas.height - (gCanvas.height * 0.875), gCanvas.width - (gCanvas.width * 0.125))
+}
+

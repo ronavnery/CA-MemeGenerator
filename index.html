@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Meme Generator - Nathalie & Ron</title>
+    <link rel="stylesheet" href="css/editor.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -40,9 +41,16 @@
                 </canvas>
                 <div class="input-container">
                     <input type="text" data-position="top" placeholder="Top Text" onkeyup="onTxtInput(this)" />
-                    <input onchange="onPickColor(this.value)" id="color-picked-top" type="color" value="#ffffff" />
                     <input type="text" data-position="bottom" placeholder="Bottom Text" onkeyup="onTxtInput(this)" />
-                    
+                    Color: <input class="jscolor {hash:true}" value="#ffffff" onchange="onPickColor(this.value)">
+                    <select id="updateFamily" onchange="onUpdatefamily();">
+                        <option> Impact </option>
+                        <option> Ero </option>
+                        <option> Lato </option>
+                        <option> major </option>
+                        <option> Verdana </option>
+                        <option> Lucida Sans Unicode </option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -53,7 +61,8 @@
     <footer>
         Ron & Nathalie
     </footer>
- <script src="/jquery/jquery.js"></script>
+
+    <script src="js/editor/jscolor.js"></script>
     <script src="js/util/util.js"></script>
     <script src="js/editor/editor-controller.js"></script>
     <script src="js/main/main-controller.js"></script>

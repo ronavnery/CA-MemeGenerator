@@ -28,9 +28,21 @@ function onTxtInput(el) {
     if (position === 'top') getCurrLineObj(gMeme.txts[0])
     else getCurrLineObj(gMeme.txts[1])
     // Nathalie: Add functions for alignment(left-right), alignment(up-down), color, font-family,
+    onUpdatefamily(gCurrLine.font)
     onPickColor(gCurrLine.color)
     setTxt(txt)
     draw();
+}
+
+function onPickColor(color) {
+    if (color === undefined) color = 'white'
+    pickColor(color);
+}
+
+function onUpdatefamily(family) {
+    var selector = document.querySelector('#updateFamily');
+    var family = selector.options[selector.selectedIndex].value;
+    pickFamily(family)
 }
 
 // Nathalie: Add function to clear line from gMeme model and draw 
@@ -40,24 +52,9 @@ function draw() {
     printImgOnCanvas();
     var topText = gMeme.txts[0];
     var bottomText = gMeme.txts[1];
-    drawText(topText.txt, topText.locX, topText.locY, topText.color);
-    drawText(bottomText.txt, bottomText.locX, bottomText.locY, bottomText.color);
+
+    drawText(topText.txt, topText.locX, topText.locY, topText.color, topText.family);
+    drawText(bottomText.txt, bottomText.locX, bottomText.locY, bottomText.color, bottomText.family);
 }
 
 
-function drawText(txt, x, y, color) {
-    gCtx.restore()
-    gCtx.textAlign = 'center';
-    gCtx.font = '40px Impact';
-    gCtx.lineWidth = 5;
-    gCtx.strokeStyle = 'black';
-    gCtx.fillStyle = color;
-    gCtx.lineJoin = 'round';
-    gCtx.save()
-    printAt(gCtx, txt, x, y, gCanvas.height - (gCanvas.height * 0.875), gCanvas.width - (gCanvas.width * 0.125))
-}
-
-function onPickColor(color) {
-    if (color === undefined) color = 'white'
-    pickColor(color);
-}
