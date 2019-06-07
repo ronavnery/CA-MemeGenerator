@@ -62,3 +62,10 @@ function setCurrLineFontFamily(fontFamily) {
     gCurrLine.fontFamily = fontFamily
     draw()
 }
+
+
+function changeFontSize(el) {
+    if (el === 'bigger') gCurrLine.size += 2
+    else gCurrLine.size -= 2
+    draw()
+}

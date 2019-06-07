@@ -55,8 +55,11 @@ function onChangeFontFamily() {
 function draw() {
     drawCanvas();
     printImgOnCanvas();
-    gMeme.txts.forEach(txt=> drawText(txt.txt, txt.locX, txt.locY, txt.color, txt.fontFamily));
+    gMeme.txts.forEach(txt=> {
+        drawText(txt.txt, txt.locX, txt.locY, txt.color, txt.size ,txt.fontFamily)}
+        );
 }
+
 
 // function drawText(txt, x, y, color) {
 //     gCtx.restore()
@@ -70,10 +73,10 @@ function draw() {
 //     printAt(gCtx, txt, x, y, gCanvas.height - (gCanvas.height * 0.875), gCanvas.width - (gCanvas.width * 0.125))
 // }
 
-function drawText(txt, x, y, color, fontFamily) {
+function drawText(txt, x, y, color,fontSize ,fontFamily) {
     gCtx.restore()
     gCtx.textAlign = 'center';
-    gCtx.font = `40px ${fontFamily}`;
+    gCtx.font = `${fontSize + 30}px ${fontFamily}`;
     gCtx.lineWidth = 5;
     gCtx.strokeStyle = 'black';
     gCtx.fillStyle = color;

@@ -42,6 +42,10 @@
                 <div class="input-container flex flex-column">
                     <input type="text" id="meme-text-input" placeholder="Text" onkeyup="onTxtInput(this)" />
                     <input class="jscolor {hash:true}" value="#ffffff" onchange="onPickColor(this.value)">
+                    <div class="font-size-container">
+                    <button id="bigger" onclick="changeFontSize(this.id)"></button>
+                    <button id="smaller" onclick="changeFontSize(this.id)"></button>
+                </div>
                     <select id="change-font-family" onchange="onChangeFontFamily();">
                         <option>Impact</option>
                         <option>Ero</option>

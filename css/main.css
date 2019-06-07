@@ -5,6 +5,10 @@ body {
     background-color: rgba(11, 121, 211, 0.8);
 }
 
+button {
+    cursor: pointer;
+}
+
 ul {
     margin: 0;
     padding: 0;
@@ -70,7 +74,6 @@ footer {
     margin: 0 auto;
 }
 
-
 /* Editor */
 
 .editor-modal {
@@ -100,6 +103,27 @@ footer {
 
 .modal-content {
     text-align: center;
+}
+
+#smaller:hover, #bigger:hover{
+background-color: rgba(255, 255, 255, 0.774);
+}
+
+#bigger, #smaller {
+    background-color: rgba(255, 255, 255, 0.541);
+    border: none;
+    border-radius: 20%;
+    margin: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+#bigger::before {
+    content: url('../img/svgs/increase-font-size.svg');
+}
+
+#smaller::before {
+    content: url('../img/svgs/decrease-font-size.svg');
 }
 
 /* Canvas */
