@@ -34,6 +34,8 @@ let gCurrLine;
             ]
         }
     }
+}
+
 
 function createImgs() {
     return [
@@ -104,9 +106,12 @@ function getKeywordsDataList(isUnique = true) {
 }
 
 function pickColor(color) {
-     if(color === undefined) gCurrLine.color
-    else if (gCurrLine === undefined) gCurrLine = gMeme.txts[0];
-    gCurrLine.color = color
+    //  if(color === undefined) gCurrLine.color
+    // else if (gCurrLine === undefined) gCurrLine = gMeme.txts[0];
+    // gCurrLine.color = color
+    if (color === undefined) gCurrLine.color
+    else gCurrLine.color = color;
+
     draw();
 }
 
@@ -114,7 +119,7 @@ function getCurrLineObj(line){
     gCurrLine = line
 }
 
-function setTxt(txt){
+function setTxt(txt) {
     gCurrLine.txt = txt
 }
 
