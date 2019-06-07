@@ -17,7 +17,9 @@ function drawCanvas() {
 function printImgOnCanvas() {
     let img = new Image();
     img.src = gMeme.src;
-    drawImageProp(gCtx, img, 0, 0, gCanvas.width, gCanvas.height)
+    gCanvas.width = img.width;
+    gCanvas.height = img.height;
+    gCtx.drawImage(img, 0, 0, img.width, img.height);
 }
 
 function onTxtInput(el) {
@@ -25,13 +27,13 @@ function onTxtInput(el) {
     let position = el.getAttribute('data-position');
     if (position === 'top') getCurrLineObj(gMeme.txts[0])
     else getCurrLineObj(gMeme.txts[1])
-
+    // Nathalie: Add functions for alignment(left-right), alignment(up-down), color, font-family,
     pickColor()
     setTxt(txt)
     draw();
 }
 
-
+// Nathalie: Add function to clear line from gMeme model and draw 
 
 function draw() {
     drawCanvas();

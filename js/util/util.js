@@ -1,5 +1,7 @@
 'use strict';
 
+
+// drawImageProp NOT USED AT THE MOMENT. DELETE IF NOT NEEDED
 function drawImageProp(ctx, img, x, y, w, h, offsetX, offsetY) {
 
     if (arguments.length === 2) {
