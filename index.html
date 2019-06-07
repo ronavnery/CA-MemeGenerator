@@ -39,8 +39,9 @@
                 <canvas id="meme-canvas" width="400" height="400" onclick="dragText(event)">
                     Update your browser to enjoy canvas!
                 </canvas>
-                <div class="input-container">
-                    Color: <input class="jscolor {hash:true}" value="#ffffff" onchange="onPickColor(this.value)">
+                <div class="input-container flex flex-column">
+                    <input type="text" id="meme-text-input" placeholder="Text" onkeyup="onTxtInput(this)" />
+                    <input class="jscolor {hash:true}" value="#ffffff" onchange="onPickColor(this.value)">
                     <select id="change-font-family" onchange="onChangeFontFamily();">
                         <option>Impact</option>
                         <option>Ero</option>
@@ -52,7 +53,7 @@
                     <button onclick="onAddNewLine()">New Line</button>
                     <button onclick="onSwitchLine()">Switch Line</button>
                     <!-- <input type="text" data-position="bottom" placeholder="Bottom Text" onkeyup="onTxtInput(this)" /> -->
-                    
+                    <!-- <h1>test</h1> -->
                 </div>
             </div>
         </div>
