@@ -100,3 +100,19 @@ function onSwitchLine() {
     var elInput = document.querySelector('#meme-text-input');
     elInput.value = gCurrLine.txt;
 }
+
+function onClickCanvas(ev) {
+    let clickPosY = ev.offsetY
+    // console.log('click pos is posY:', clickPosY)
+    gMeme.txts.forEach((txt,idx) => {
+        // console.log(txt.locY)
+        if (clickPosY <= txt.locY && clickPosY >= (txt.locY - (txt.size + 10))) {
+            // console.log('hit');
+            // console.log('idx is', idx)
+            switchLine(idx);
+            var elInput = document.querySelector('#meme-text-input');
+            elInput.value = gCurrLine.txt;
+            elInput.focus();
+        }
+    })
+}

@@ -47,7 +47,12 @@ function createLine() {
 }
 
 // move to future editor service
-function switchLine() {
+function switchLine(lineIdx='none') {
+    // moves to specified line idx if given as parameter, else, goes one forward
+    if (lineIdx !== 'none') {
+        gCurrLine = gMeme.txts[lineIdx];
+        return;
+    }
     let currLineIdx = gMeme.txts.indexOf(gCurrLine);
     let idxOfLastLine = gMeme.txts.length - 1;
     if (currLineIdx === idxOfLastLine) gCurrLine = gMeme.txts[0]
@@ -62,3 +67,4 @@ function setCurrLineFontFamily(fontFamily) {
     gCurrLine.fontFamily = fontFamily
     draw()
 }
+
