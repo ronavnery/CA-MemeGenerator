@@ -16,6 +16,7 @@ function createMeme(id, src, color) {
     }
 }
 
+
 function createImgs() {
     return [
         createImg('img/memes/african-dance.jpg', ['cute', 'happy']),
@@ -75,7 +76,6 @@ function getKeywordsDataList(isUnique = true) {
             keywords.push(keyword);
         })
     })
-
     // Remove duplicates:
     if (isUnique) {
         return keywords.filter((value, idx, keywords) => {
@@ -84,14 +84,20 @@ function getKeywordsDataList(isUnique = true) {
     } else return keywords;
 }
 
-// move to future editor service
+// NATHALIE: Your changes are in comment, I didnt wont to delete just yet until u check again
+// It didnt work when i tried.
+
 function pickColor(color) {
     if (color === undefined) gCurrLine.color
-    else gCurrLine.color = color;
+    else if (gCurrLine === undefined) gCurrLine = gMeme.txts[0];
+    gCurrLine.color = color
+    // if (color === undefined) gCurrLine.color
+    // else gCurrLine.color = color;
+
     draw();
 }
 
-    
+
 // move to future editor service
 function setTxtToCurrLine(txt) {
     gCurrLine.txt = txt;
@@ -113,11 +119,12 @@ function createLine() {
     else if (gMemeNumOfLines === 2) var locY = gCanvas.height * 0.875;
     else var locY = gCanvas.height / 2
     gMemeNumOfLines++;
-    console.log('canvas on create line is', gCanvas.width)
+    // console.log('canvas on create line is', gCanvas.width)
     return {
         locX: gCanvas.width / 2,
         locY: locY,
         txt: '',
+        family: 'Impact',
         size: 20,
         align: 'left',
         color: 'white'
@@ -130,4 +137,13 @@ function switchLine() {
     let idxOfLastLine = gMeme.txts.length - 1;
     if (currLineIdx === idxOfLastLine) gCurrLine = gMeme.txts[0]
     else gCurrLine = gMeme.txts[currLineIdx + 1]
+}
+
+function setTxt(txt) {
+    gCurrLine.txt = txt
+}
+
+function pickFamily(family) {
+    gCurrLine.family = family
+    draw()
 }
