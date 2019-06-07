@@ -57,7 +57,7 @@ function drawText(txt, x, y) {
     gCtx.strokeStyle = 'black';
     gCtx.fillStyle = gColorTop;
     gCtx.lineJoin = 'round';
-    printAt(gCtx, txt, x, y, gCanvas.height-(gCanvas.height * 0.875), gCanvas.width-(gCanvas.width * 0.125))
+    printAt(gCtx, txt, x, y, gCanvas.height - (gCanvas.height * 0.875), gCanvas.width - (gCanvas.width * 0.125))
 }
 
 // function customColor() {
@@ -67,6 +67,12 @@ function drawText(txt, x, y) {
 
 function onPickColor(color, txtLoc) {
     console.log(color, txtLoc);
-    
+
     pickColor(color, txtLoc);
-  }
+}
+
+function dragText(ev) {
+    let posX = ev.offsetX
+    let posY = ev.offsetY
+    console.log(posX,posY)
+}

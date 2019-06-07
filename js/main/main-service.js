@@ -8,28 +8,28 @@ let gSearchResults;
 let gColorTop = 'white'
 let gColorBottom = 'white';
 
-    function createMeme(id, src) {
-        return {
-            selectedImgId: id,
-            src: src,
-            txts: [
-                {
-                    position: 'top',
-                    txt: '',
-                    size: 20,
-                    align: 'left',
-                    color: gColorTop
-                },
-                {
-                    position: 'bottom',
-                    txt: '',
-                    size: 20,
-                    align: 'left',
-                    color: gColorBottom
-                }
-            ]
-        }
+function createMeme(id, src) {
+    return {
+        selectedImgId: id,
+        src: src,
+        txts: [
+            {
+                position: 'top',
+                txt: '',
+                size: 20,
+                align: 'left',
+                color: gColorTop
+            },
+            {
+                position: 'bottom',
+                txt: '',
+                size: 20,
+                align: 'left',
+                color: gColorBottom
+            }
+        ]
     }
+}
 
 function createImgs() {
     return [
@@ -105,11 +105,11 @@ function pickColor(color, txtLoc) {
     if ('color-picked-top' === txtLoc) {
         gColorTop = color
         currLoc = color
-    } else{
+    } else {
         gColorBottom = color
         currLoc = color
-    } 
-return currLoc
+    }
+    return currLoc
 }
 
 // Editor
