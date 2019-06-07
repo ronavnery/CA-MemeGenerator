@@ -18,7 +18,9 @@ function drawCanvas() {
 function printImgOnCanvas() {
     let img = new Image();
     img.src = gMeme.src;
-    drawImageProp(gCtx, img, 0, 0, gCanvas.width, gCanvas.height)
+    gCanvas.width = img.width;
+    gCanvas.height = img.height;
+    gCtx.drawImage(img, 0, 0, img.width, img.height);
 }
 
 function onTxtInput(el) {
