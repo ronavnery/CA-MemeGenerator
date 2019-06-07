@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Meme Generator - Nathalie & Ron</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fonts.css">
 </head>
 
 <body onload="onInit()">
@@ -41,7 +42,7 @@
                 <div class="input-container">
                     <input type="text" data-position="top" placeholder="Top Text" onkeyup="onTxtInput(this)" />
                     <input type="text" data-position="bottom" placeholder="Bottom Text" onkeyup="onTxtInput(this)" />
-                    Color: <input class="jscolor {hash:true}" value="#ffffff" onchange="onPickColor(this.value)">
+                    Color: <input class="jscolor {hash:true}" value="#ffffff" onchange="onPickColor(this.value)" style="width:70px; height:20px;">
                     <select id="updateFamily" onchange="onUpdatefamily();">
                         <option> Impact </option>
                         <option> Ero </option>
