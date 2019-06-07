@@ -24,7 +24,7 @@ function addEventListeners() {
 function onImageClick(el) {
     let id = el.getAttribute('data-id');
     let src = el.getAttribute('src');
-    drawCanvas()
+    drawCanvas();
     gMeme = createMeme(id, src);
     showEditorModal();
 }

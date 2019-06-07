@@ -40,17 +40,15 @@
                     Update your browser to enjoy canvas!
                 </canvas>
                 <div class="input-container">
-                    <input type="text" data-position="top" placeholder="Top Text" onkeyup="onTxtInput(this)" />
-                    <input type="text" data-position="bottom" placeholder="Bottom Text" onkeyup="onTxtInput(this)" />
-                    Color: <input class="jscolor {hash:true}" value="#ffffff" onchange="onPickColor(this.value)" style="width:70px; height:20px;">
+                    Color: <input class="jscolor {hash:true}" value="#ffffff" onchange="onPickColor(this.value)">
                     <select id="updateFamily" onchange="onUpdatefamily();">
                         <option> Impact </option>
-                        <option> Ero </option>
-                        <option> Lato </option>
-                        <option> major </option>
-                        <option> Verdana </option>
                         <option> Lucida Sans Unicode </option>
                     </select>
+                    <button onclick="onAddNewLine()">New Line</button>
+                    <button onclick="onSwitchLine()">Switch Line</button>
+                    <!-- <input type="text" data-position="bottom" placeholder="Bottom Text" onkeyup="onTxtInput(this)" /> -->
+                    
                 </div>
             </div>
         </div>
@@ -62,6 +60,7 @@
         Ron & Nathalie
     </footer>
 
+    
     <script src="js/editor/jscolor.js"></script>
     <script src="js/util/util.js"></script>
     <script src="js/editor/editor-controller.js"></script>
