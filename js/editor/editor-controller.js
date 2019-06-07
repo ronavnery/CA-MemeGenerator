@@ -8,9 +8,9 @@ let gTxt;
 function initEditor() {
     printImgOnCanvas()
     gCurrLine = gMeme.txts[0] // move to controller service
-    let elInput = document.querySelector('#meme-text-input');
-    elInput.focus();
-    elInput.value = '';
+    // let elInput = document.querySelector('#meme-text-input');
+    // elInput.focus();
+    // elInput.value = '';
 }
 
 function drawCanvas() {
