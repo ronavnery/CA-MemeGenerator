@@ -4,28 +4,30 @@ let gNextId = 1;
 let gImgs;
 let gMeme;
 let gSearchResults;
-// let gColor = 'white';
-let gColorTop = 'white'
-let gColorBottom = 'white';
+let gCurrLine;
 
-    function createMeme(id, src) {
+    function createMeme(id, src, color) {
         return {
             selectedImgId: id,
             src: src,
             txts: [
                 {
                     position: 'top',
+                    locX: gCanvas.width / 2,
+                    locY: gCanvas.height * 0.125,
                     txt: '',
                     size: 20,
                     align: 'left',
-                    color: gColorTop
+                    color: 'white'
                 },
                 {
                     position: 'bottom',
+                    locX: gCanvas.width / 2,
+                    locY: gCanvas.height * 0.875,
                     txt: '',
                     size: 20,
                     align: 'left',
-                    color: gColorBottom
+                    color: 'white'
                 }
             ]
         }
@@ -91,6 +93,7 @@ function getKeywordsDataList(isUnique = true) {
             keywords.push(keyword);
         })
     })
+    
     // Remove duplicates:
     if (isUnique) {
         return keywords.filter((value, idx, keywords) => {
@@ -99,24 +102,18 @@ function getKeywordsDataList(isUnique = true) {
     } else return keywords;
 }
 
-function pickColor(color, txtLoc) {
-    // gColor = color;
-    let currLoc;
-    if ('color-picked-top' === txtLoc) {
-        gColorTop = color
-        currLoc = color
-    } else{
-        gColorBottom = color
-        currLoc = color
-    } 
-return currLoc
+function pickColor(color) {
+     if(color === undefined) gCurrLine.color
+    else gCurrLine.color = color;
+    draw();
 }
 
-// Editor
-function setTopText(txt) {
-    gMeme.txts[0].txt = txt;
+
+
+function getCurrLineObj(line){
+    gCurrLine = line
 }
 
-function setBottomText(txt) {
-    gMeme.txts[1].txt = txt;
+function setTxt(txt){
+    gCurrLine.txt = txt
 }
