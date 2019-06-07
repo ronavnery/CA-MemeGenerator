@@ -41,9 +41,13 @@
                 </canvas>
                 <div class="input-container">
                     Color: <input class="jscolor {hash:true}" value="#ffffff" onchange="onPickColor(this.value)">
-                    <select id="updateFamily" onchange="onUpdatefamily();">
-                        <option> Impact </option>
-                        <option> Lucida Sans Unicode </option>
+                    <select id="change-font-family" onchange="onChangeFontFamily();">
+                        <option>Impact</option>
+                        <option>Ero</option>
+                        <option>Lato</option>
+                        <option>Major</option>
+                        <option>Verdana</option>
+                        <option>Lucida Sans Unicode</option>
                     </select>
                     <button onclick="onAddNewLine()">New Line</button>
                     <button onclick="onSwitchLine()">Switch Line</button>
@@ -64,6 +68,7 @@
     <script src="js/editor/jscolor.js"></script>
     <script src="js/util/util.js"></script>
     <script src="js/editor/editor-controller.js"></script>
+    <script src="js/editor/editor-service.js"></script>
     <script src="js/main/main-controller.js"></script>
     <script src="js/main/main-service.js"></script>
 </body>

@@ -33,7 +33,7 @@ function onTxtInput(el) {
     // Nathalie: Add functions for alignment(left-right), alignment(up-down), color, font-family,
     // pickColor();
     setTxtToCurrLine(txt)
-    onUpdatefamily(gCurrLine.font)
+    onChangeFontFamily()
     onPickColor(gCurrLine.color)
     setTxt(txt)
     draw();
@@ -44,10 +44,10 @@ function onPickColor(color) {
     pickColor(color);
 }
 
-function onUpdatefamily(family) {
-    var selector = document.querySelector('#updateFamily');
-    var family = selector.options[selector.selectedIndex].value;
-    pickFamily(family)
+function onChangeFontFamily() {
+    let selector = document.querySelector('#change-font-family');
+    let fontFamily = selector.options[selector.selectedIndex].value;
+    setCurrLineFontFamily(fontFamily);
 }
 
 // Nathalie: Add function to clear line from gMeme model and draw 
@@ -55,7 +55,7 @@ function onUpdatefamily(family) {
 function draw() {
     drawCanvas();
     printImgOnCanvas();
-    gMeme.txts.forEach(txt=> drawText(txt.txt, txt.locX, txt.locY, txt.color));
+    gMeme.txts.forEach(txt=> drawText(txt.txt, txt.locX, txt.locY, txt.color, txt.fontFamily));
 }
 
 // function drawText(txt, x, y, color) {
@@ -70,11 +70,10 @@ function draw() {
 //     printAt(gCtx, txt, x, y, gCanvas.height - (gCanvas.height * 0.875), gCanvas.width - (gCanvas.width * 0.125))
 // }
 
-function drawText(txt, x, y, color, family) {
-    console.log('family is', family)
+function drawText(txt, x, y, color, fontFamily) {
     gCtx.restore()
     gCtx.textAlign = 'center';
-    gCtx.font = `40px ${family}`;
+    gCtx.font = `40px ${fontFamily}`;
     gCtx.lineWidth = 5;
     gCtx.strokeStyle = 'black';
     gCtx.fillStyle = color;
