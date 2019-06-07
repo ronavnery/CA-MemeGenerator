@@ -5,34 +5,16 @@ let gImgs;
 let gMeme;
 let gSearchResults;
 let gCurrLine;
+let gMemeNumOfLines;
 
 function createMeme(id, src, color) {
+    gMemeNumOfLines = 1;
     return {
         selectedImgId: id,
         src: src,
-        txts: [
-            {
-                position: 'top',
-                locX: gCanvas.width / 2,
-                locY: gCanvas.height * 0.125,
-                txt: '',
-                size: 20,
-                align: 'left',
-                color: 'white'
-            },
-            {
-                position: 'bottom',
-                locX: gCanvas.width / 2,
-                locY: gCanvas.height * 0.875,
-                txt: '',
-                size: 20,
-                align: 'left',
-                color: 'white'
-            }
-        ]
+        txts: [createLine()]
     }
 }
-
 
 function createImgs() {
     return [
@@ -73,9 +55,8 @@ function createImg(src, keywords) {
 }
 
 function getImagesForDisplay() {
-    if (gIsSearchOn) {
-        return gSearchResults;
-    } else return gImgs;
+    if (gIsSearchOn) return gSearchResults;
+    else return gImgs;
 }
 
 // Search Function
@@ -103,18 +84,50 @@ function getKeywordsDataList(isUnique = true) {
     } else return keywords;
 }
 
+// move to future editor service
 function pickColor(color) {
     if (color === undefined) gCurrLine.color
     else gCurrLine.color = color;
     draw();
 }
 
-
-
-function getCurrLineObj(line) {
-    gCurrLine = line
+    
+// move to future editor service
+function setTxtToCurrLine(txt) {
+    gCurrLine.txt = txt;
 }
 
-function setTxt(txt) {
-    gCurrLine.txt = txt
+// move to future editor service
+function addNewLine() {
+    let line = createLine();
+    console.log('canvas width is', gCanvas.width)
+    gMeme.txts.push(line);
+    let newLineIdx = gMeme.txts.length - 1
+    gCurrLine = gMeme.txts[newLineIdx];
+    console.log(gCurrLine);
+}
+
+// move to future editor service
+function createLine() {
+    if (gMemeNumOfLines === 1) var locY = gCanvas.height * 0.125;
+    else if (gMemeNumOfLines === 2) var locY = gCanvas.height * 0.875;
+    else var locY = gCanvas.height / 2
+    gMemeNumOfLines++;
+    console.log('canvas on create line is', gCanvas.width)
+    return {
+        locX: gCanvas.width / 2,
+        locY: locY,
+        txt: '',
+        size: 20,
+        align: 'left',
+        color: 'white'
+    }
+}
+
+// move to future editor service
+function switchLine() {
+    let currLineIdx = gMeme.txts.indexOf(gCurrLine);
+    let idxOfLastLine = gMeme.txts.length - 1;
+    if (currLineIdx === idxOfLastLine) gCurrLine = gMeme.txts[0]
+    else gCurrLine = gMeme.txts[currLineIdx + 1]
 }

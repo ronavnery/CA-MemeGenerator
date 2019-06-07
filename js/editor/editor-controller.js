@@ -7,11 +7,16 @@ let gTxt;
 
 function initEditor() {
     printImgOnCanvas()
+    gCurrLine = gMeme.txts[0] // move to controller service
+    let elInput = document.querySelector('#meme-text-input');
+    elInput.focus();
+    elInput.value = '';
 }
 
 function drawCanvas() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d');
+    console.log('canvas width on draw canvas is', gCanvas.width)
 }
 
 function printImgOnCanvas() {
@@ -19,17 +24,15 @@ function printImgOnCanvas() {
     img.src = gMeme.src;
     gCanvas.width = img.width;
     gCanvas.height = img.height;
-    gCtx.drawImage(img, 0, 0, img.width, img.height);
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+    console.log('canvas width after pring img ', gCanvas.width)
 }
 
 function onTxtInput(el) {
     let txt = el.value;
-    let position = el.getAttribute('data-position');
-    if (position === 'top') getCurrLineObj(gMeme.txts[0])
-    else getCurrLineObj(gMeme.txts[1])
     // Nathalie: Add functions for alignment(left-right), alignment(up-down), color, font-family,
-    pickColor()
-    setTxt(txt)
+    pickColor();
+    setTxtToCurrLine(txt)
     draw();
 }
 
@@ -38,12 +41,8 @@ function onTxtInput(el) {
 function draw() {
     drawCanvas();
     printImgOnCanvas();
-    var topText = gMeme.txts[0];
-    var bottomText = gMeme.txts[1];
-    drawText(topText.txt, topText.locX, topText.locY, topText.color);
-    drawText(bottomText.txt, bottomText.locX, bottomText.locY, bottomText.color);
+    gMeme.txts.forEach(txt=> drawText(txt.txt, txt.locX, txt.locY, txt.color));
 }
-
 
 function drawText(txt, x, y, color) {
     gCtx.restore()
@@ -60,4 +59,18 @@ function drawText(txt, x, y, color) {
 function onPickColor(color) {
     if (color === undefined) color = 'white'
     pickColor(color);
+}
+
+function onAddNewLine() {
+    console.log('canvas width on Add new line is ', gCanvas.width)
+    addNewLine();
+    let elInput = document.querySelector('#meme-text-input');
+    elInput.focus();
+    elInput.value = '';
+}
+
+function onSwitchLine() {
+    switchLine();
+    var elInput = document.querySelector('#meme-text-input');
+    elInput.value = gCurrLine.txt;
 }

@@ -28,7 +28,7 @@ function drawImageProp(ctx, img, x, y, w, h, offsetX, offsetY) {
         cx, cy, cw, ch, ar = 1;
 
     // decide which gap to fill    
-    if (nw < w) ar = w / nw;                             
+    if (nw < w) ar = w / nw;
     if (Math.abs(ar - 1) < 1e-14 && nh < h) ar = h / nh;  // updated
     nw *= ar;
     nh *= ar;
@@ -47,31 +47,28 @@ function drawImageProp(ctx, img, x, y, w, h, offsetX, offsetY) {
     if (ch > ih) ch = ih;
 
     // fill image in dest. rectangle
-    ctx.drawImage(img, cx, cy, cw, ch,  x, y, w, h);
+    ctx.drawImage(img, cx, cy, cw, ch, x, y, w, h);
 }
 
-function printAt(ctx, text, x, y, lineHeight, fitWidth)
-{
+function printAt(ctx, text, x, y, lineHeight, fitWidth) {
     fitWidth = fitWidth || 0;
-    
-    if (fitWidth <= 0)
-    {
+
+    if (fitWidth <= 0) {
         ctx.strokeText(text, x, y);
         ctx.fillText(text, x, y);
         return;
     }
-    
-    for (var idx = 1; idx <= text.length; idx++)
-    {
+
+    for (var idx = 1; idx <= text.length; idx++) {
         var str = text.substr(0, idx);
-        if (ctx.measureText(str).width > fitWidth)
-        {
-            ctx.strokeText( text.substr(0, idx-1), x, y );
-            ctx.fillText( text.substr(0, idx-1), x, y );
-            printAt(ctx, text.substr(idx-1), x, y + lineHeight, lineHeight,  fitWidth);
+        if (ctx.measureText(str).width > fitWidth) {
+            ctx.strokeText(text.substr(0, idx - 1), x, y);
+            ctx.fillText(text.substr(0, idx - 1), x, y);
+            printAt(ctx, text.substr(idx - 1), x, y + lineHeight, lineHeight, fitWidth);
             return;
         }
     }
+
     ctx.strokeText(text, x, y);
     ctx.fillText(text, x, y);
 }
