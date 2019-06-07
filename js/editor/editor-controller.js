@@ -6,7 +6,6 @@ let gTxt;
 
 
 function initEditor() {
-    drawCanvas()
     printImgOnCanvas()
 }
 
@@ -26,16 +25,12 @@ function printImgOnCanvas() {
 function onTxtInput(el) {
     let txt = el.value;
     let position = el.getAttribute('data-position');
-    if (position === 'top') {
-        setTopText(txt);
-        // Nathalie: Add functions for alignment(left-right), alignment(up-down), color, font-family,
-        draw();
-    }
-    else {
-        setBottomText(txt);
-        // Nathalie: Add functions for alignment(left-right), alignment(up-down), color, font-family,
-        draw();
-    }
+    if (position === 'top') getCurrLineObj(gMeme.txts[0])
+    else getCurrLineObj(gMeme.txts[1])
+    // Nathalie: Add functions for alignment(left-right), alignment(up-down), color, font-family,
+    pickColor()
+    setTxt(txt)
+    draw();
 }
 
 // Nathalie: Add function to clear line from gMeme model and draw 
@@ -43,36 +38,26 @@ function onTxtInput(el) {
 function draw() {
     drawCanvas();
     printImgOnCanvas();
-    var topText = gMeme.txts[0].txt;
-    var bottomText = gMeme.txts[1].txt;
-    drawText(topText, gCanvas.width / 2, gCanvas.height * 0.125);
-    drawText(bottomText, gCanvas.width / 2, gCanvas.height * 0.875);
+    var topText = gMeme.txts[0];
+    var bottomText = gMeme.txts[1];
+    drawText(topText.txt, topText.locX, topText.locY, topText.color);
+    drawText(bottomText.txt, bottomText.locX, bottomText.locY, bottomText.color);
 }
 
 
-function drawText(txt, x, y) {
+function drawText(txt, x, y, color) {
+    gCtx.restore()
     gCtx.textAlign = 'center';
     gCtx.font = '40px Impact';
     gCtx.lineWidth = 5;
     gCtx.strokeStyle = 'black';
-    gCtx.fillStyle = gColorTop;
+    gCtx.fillStyle = color;
     gCtx.lineJoin = 'round';
+    gCtx.save()
     printAt(gCtx, txt, x, y, gCanvas.height - (gCanvas.height * 0.875), gCanvas.width - (gCanvas.width * 0.125))
 }
 
-// function customColor() {
-//     $('#custom').ColorPicker(onShow);
-
-// }
-
-function onPickColor(color, txtLoc) {
-    console.log(color, txtLoc);
-
-    pickColor(color, txtLoc);
-}
-
-function dragText(ev) {
-    let posX = ev.offsetX
-    let posY = ev.offsetY
-    console.log(posX,posY)
+function onPickColor(color) {
+    if (color === undefined) color = 'white'
+    pickColor(color);
 }
