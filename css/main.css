@@ -105,8 +105,8 @@ footer {
     text-align: center;
 }
 
-#smaller:hover, #bigger:hover{
-background-color: rgba(255, 255, 255, 0.774);
+#smaller:hover, #bigger:hover {
+    background-color: rgba(255, 255, 255, 0.774);
 }
 
 #bigger, #smaller {
@@ -132,6 +132,13 @@ canvas {
     border: 1px solid white;
 }
 
+.jscolor {
+    width: 60px;
+    border: none;
+    padding: 5px;
+    margin: 5px;
+}
+
 /* Utils  */
 
 .hide {
@@ -154,10 +161,8 @@ canvas {
     align-items: center;
 }
 
-
-
 /* Drag try */
 
 #theText {
-    width:10em;
+    width: 10em;
 }

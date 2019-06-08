@@ -32,6 +32,7 @@ function onImageClick(el) {
 function hideEditorModal() {
     let elEditModal = document.querySelector('.editor-modal');
     elEditModal.classList.add('hide');
+    renderGallery()
 }
 
 function showEditorModal() {

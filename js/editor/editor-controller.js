@@ -21,10 +21,12 @@ function drawCanvas() {
 
 function printImgOnCanvas() {
     let img = new Image();
-    img.src = gMeme.src;
-    gCanvas.width = img.width;
-    gCanvas.height = img.height;
+    if(!gUploadedFileSrc) img.src = gMeme.src;
+    else img.src = gUploadedFileSrc
+    // gCanvas.width = img.width;
+    // gCanvas.height = img.height;
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+    gUploadedFileSrc = ''
     // console.log('canvas width after pring img ', gCanvas.width)
 }
 

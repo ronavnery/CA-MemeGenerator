@@ -24,11 +24,12 @@
                 placeholder="Search..."></section>
         <datalist id="search-list">
         </datalist>
+        <input type="file" name="image" onchange="onFileInputChange(event)" />
+
     </header>
 
     <main class="main-container">
         <section class="gallery">
-
         </section>
     </main>
 
@@ -40,12 +41,13 @@
                     Update your browser to enjoy canvas!
                 </canvas>
                 <div class="input-container flex flex-column">
-                    <input type="text" id="meme-text-input" id="theText" placeholder="Text" onkeyup="onTxtInput(this)" />
+                    <input type="text" id="meme-text-input" id="theText" placeholder="Text"
+                        onkeyup="onTxtInput(this)" />
                     <input class="jscolor {hash:true}" value="#ffffff" onchange="onPickColor(this.value)">
                     <div class="font-size-container">
-                    <button id="bigger" onclick="changeFontSize(this.id)"></button>
-                    <button id="smaller" onclick="changeFontSize(this.id)"></button>
-                </div>
+                        <button id="bigger" onclick="changeFontSize(this.id)"></button>
+                        <button id="smaller" onclick="changeFontSize(this.id)"></button>
+                    </div>
                     <select id="change-font-family" onchange="onChangeFontFamily();">
                         <option>Impact</option>
                         <option>Ero</option>
@@ -56,14 +58,10 @@
                     </select>
                     <button onclick="onAddNewLine()">New Line</button>
                     <button onclick="onSwitchLine()">Switch Line</button>
-                    <!-- <input type="text" data-position="bottom" placeholder="Bottom Text" onkeyup="onTxtInput(this)" /> -->
-                    <!-- <h1>test</h1> -->
                 </div>
             </div>
         </div>
     </section>
-
-
 
     <footer>
         Ron & Nathalie
@@ -76,6 +74,8 @@
     <script src="js/editor/editor-service.js"></script>
     <script src="js/main/main-controller.js"></script>
     <script src="js/main/main-service.js"></script>
+    <script src="js/upload-service/upload-service.js"></script>
+
 </body>
 
 </html>
