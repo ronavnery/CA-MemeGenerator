@@ -1,9 +1,14 @@
 'use strict';
 
-var gIsSearchOn;
+let gIsSearchOn;
 
 function onInit() {
-    gImgs = createImgs();
+    gImgs = loadFromStorage('images')
+    if (!gImgs || !gImgs.length) {
+        gImgs = createImgs();
+    }
+
+    saveImages()
     renderGallery();
     hideEditorModal();
     addEventListeners();
@@ -38,14 +43,15 @@ function hideEditorModal() {
 function showEditorModal() {
     let elEditModal = document.querySelector('.editor-modal');
     elEditModal.classList.remove('hide');
-
     initEditor();
 }
 
 function renderGallery() {
+    saveImages()
     let elGallery = document.querySelector('.gallery');
     let htmlStr = '';
     let images = getImagesForDisplay();
+
     images.forEach(img => {
         htmlStr += genGalleryItemHtml(img.id, img.src);
     })
@@ -62,9 +68,13 @@ function renderDataList() {
     let elDataList = document.querySelector('datalist');
     let strHtml = '';
     let keywords = getKeywordsDataList();
-    keywords.forEach(keyword=> {
+    keywords.forEach(keyword => {
         strHtml += `<option value="${keyword}">`
     })
     elDataList.innerHTML = strHtml;
+
 }
 
+function saveImages() {
+    saveToStorage('images', gImgs)
+}

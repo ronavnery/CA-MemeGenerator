@@ -102,7 +102,7 @@ function onAddNewLine() {
 
 function onSwitchLine() {
     switchLine();
-    var elInput = document.querySelector('#meme-text-input');
+    let elInput = document.querySelector('#meme-text-input');
     elInput.value = gCurrLine.txt;
 }
 
@@ -115,7 +115,7 @@ function onClickCanvas(ev) {
             // console.log('hit');
             // console.log('idx is', idx)
             switchLine(idx);
-            var elInput = document.querySelector('#meme-text-input');
+            let elInput = document.querySelector('#meme-text-input');
             elInput.value = gCurrLine.txt;
             elInput.focus();
         }

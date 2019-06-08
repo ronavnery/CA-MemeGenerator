@@ -9,9 +9,9 @@ function onFileInputChange(ev) {
 }
 
 function handleImageFromInput(ev, onImageReady) {
-    var reader = new FileReader();
+    let reader = new FileReader();
     reader.onload = function (event) {
-        var img = new Image();
+        let img = new Image();
         img.onload = onImageReady.bind(null, img)
         img.src = event.target.result;
         gUploadedFileSrc = img.src

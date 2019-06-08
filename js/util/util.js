@@ -20,7 +20,7 @@ function drawImageProp(ctx, img, x, y, w, h, offsetX, offsetY) {
     if (offsetX > 1) offsetX = 1;
     if (offsetY > 1) offsetY = 1;
 
-    var iw = img.width,
+    let iw = img.width,
         ih = img.height,
         r = Math.min(w / iw, h / ih),
         nw = iw * r,   // new prop. width
@@ -59,8 +59,8 @@ function printAt(ctx, text, x, y, lineHeight, fitWidth) {
         return;
     }
 
-    for (var idx = 1; idx <= text.length; idx++) {
-        var str = text.substr(0, idx);
+    for (let idx = 1; idx <= text.length; idx++) {
+        let str = text.substr(0, idx);
         if (ctx.measureText(str).width > fitWidth) {
             ctx.strokeText(text.substr(0, idx - 1), x, y);
             ctx.fillText(text.substr(0, idx - 1), x, y);
@@ -68,7 +68,16 @@ function printAt(ctx, text, x, y, lineHeight, fitWidth) {
             return;
         }
     }
-
     ctx.strokeText(text, x, y);
     ctx.fillText(text, x, y);
+}
+
+// Local storege functions:
+function saveToStorage(key, value) {
+    let strValue = JSON.stringify(value);
+    localStorage.setItem(key, strValue);
+}
+
+function loadFromStorage(key) {
+    return JSON.parse(localStorage.getItem(key))
 }
