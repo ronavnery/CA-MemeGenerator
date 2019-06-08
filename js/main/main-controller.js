@@ -26,7 +26,7 @@ function addEventListeners() {
     });
 }
 
-function onImageClick(el) {
+function onEditClick(el) {
     let id = el.getAttribute('data-id');
     let src = el.getAttribute('src');
     drawCanvas();
@@ -59,8 +59,15 @@ function renderGallery() {
 }
 
 function genGalleryItemHtml(id, src) {
-    return `<section class="gallery-item">
-    <img onclick="onImageClick(this)" data-id="${id}" src="${src}">
+    return `
+    <section class="gallery-item">
+    <img class="gallery-img" data-id="${id}" src="${src}">
+    <div class="what-next-modal">
+    <div class="middle">
+    <button data-id="${id}" src="${src}" onclick="onEditClick(this)">Edit</button>
+    <button data-id="${id}" src="${src}" onclick="onDeleteImg(this)">Delete</button>
+    </div>
+    </div>
     </section>`
 }
 
@@ -77,4 +84,10 @@ function renderDataList() {
 
 function saveImages() {
     saveToStorage('images', gImgs)
+}
+
+function onDeleteImg(el) {
+  var imgId = el.dataset.id
+    deleteImg(imgId);
+    renderGallery()
 }
