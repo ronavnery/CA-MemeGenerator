@@ -29,22 +29,23 @@ function printImgOnCanvas() {
     let img = new Image();
     if (!gUploadedFileSrc) img.src = gMeme.src;
     else img.src = gUploadedFileSrc
-    // Resizing image if image is big
-    if (img.width > 1000) {
-        img.width = img.width / 3;
-        img.height = img.height / 3;
-    } else if (img.width >= 600 && img.width < 650) {
+    if (img.width >= 600 && img.width < 650) {
         img.width = img.width * 0.8;
         img.height = img.height * 0.8;
     } else if (img.width >= 650 && img.width < 800) {
         img.width = img.width * 0.7;
         img.height = img.height * 0.7;
+    } else if (img.width >= 800 && img.width < 1000) {
+        img.width = img.width * 0.6;
+        img.height = img.height * 0.6;
+    } else if (img.width >= 1000) {
+        img.width = img.width / 3;
+        img.height = img.height / 3;
     }
     gCanvas.width = img.width;
     gCanvas.height = img.height;
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
     gUploadedFileSrc = ''
-    // console.log('canvas width after pring img ', gCanvas.width)
 }
 
 function onTxtInput(el) {
@@ -142,10 +143,10 @@ function onClickCanvas(ev) {
 
 function onSaveToGalery() {
     var imgContent = gCanvas.toDataURL('image/jpeg');
-    if(!gSavedMemes) {
+    if (!gSavedMemes) {
         gSavedMemes = []
     }
-    gSavedMemes.push({id: gId++, src: imgContent})
-    saveToStorage('editedImg', gSavedMemes) 
+    gSavedMemes.push({ id: gId++, src: imgContent })
+    saveToStorage('editedImg', gSavedMemes)
 }
 
