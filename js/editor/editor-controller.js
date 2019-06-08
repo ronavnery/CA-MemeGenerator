@@ -7,6 +7,11 @@ let gSavedMemes;
 let gId = 1;
 
 function initEditor() {
+    gSavedMemes = loadFromStorage('editedImg')
+    if (!gSavedMemes || !gSavedMemes.length) {
+        gSavedMemes = []
+    }
+
     printImgOnCanvas()
     gCurrLine = gMeme.txts[0] // move to controller service
     // let elInput = document.querySelector('#meme-text-input');
