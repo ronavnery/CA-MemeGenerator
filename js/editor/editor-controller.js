@@ -29,8 +29,19 @@ function printImgOnCanvas() {
     let img = new Image();
     if (!gUploadedFileSrc) img.src = gMeme.src;
     else img.src = gUploadedFileSrc
-    // gCanvas.width = img.width;
-    // gCanvas.height = img.height;
+    // Resizing image if image is big
+    if (img.width > 1000) {
+        img.width = img.width / 3;
+        img.height = img.height / 3;
+    } else if (img.width >= 600 && img.width < 650) {
+        img.width = img.width * 0.8;
+        img.height = img.height * 0.8;
+    } else if (img.width >= 650 && img.width < 800) {
+        img.width = img.width * 0.7;
+        img.height = img.height * 0.7;
+    }
+    gCanvas.width = img.width;
+    gCanvas.height = img.height;
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
     gUploadedFileSrc = ''
     // console.log('canvas width after pring img ', gCanvas.width)
