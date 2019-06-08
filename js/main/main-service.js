@@ -81,11 +81,3 @@ function getKeywordsDataList(isUnique = true) {
     } else return keywords;
 }
 
-function deleteImg(imgId){
-    var ImgIdx = gImgs.findIndex(function (img) { 
-        return img.id === +imgId
-     });
-    gImgs.splice(ImgIdx, 1);
-    saveImages();
-    renderGallery()
-}

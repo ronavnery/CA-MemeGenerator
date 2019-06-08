@@ -3,7 +3,8 @@
 let gCanvas;
 let gCtx;
 let gTxt;
-
+let gSavedMemes = []
+let gId = 1;
 
 function initEditor() {
     printImgOnCanvas()
@@ -21,7 +22,7 @@ function drawCanvas() {
 
 function printImgOnCanvas() {
     let img = new Image();
-    if(!gUploadedFileSrc) img.src = gMeme.src;
+    if (!gUploadedFileSrc) img.src = gMeme.src;
     else img.src = gUploadedFileSrc
     // gCanvas.width = img.width;
     // gCanvas.height = img.height;
@@ -57,9 +58,10 @@ function onChangeFontFamily() {
 function draw() {
     drawCanvas();
     printImgOnCanvas();
-    gMeme.txts.forEach(txt=> {
-        drawText(txt.txt, txt.locX, txt.locY, txt.color, txt.size ,txt.fontFamily)}
-        );
+    gMeme.txts.forEach(txt => {
+        drawText(txt.txt, txt.locX, txt.locY, txt.color, txt.size, txt.fontFamily)
+    }
+    );
 }
 
 
@@ -75,7 +77,7 @@ function draw() {
 //     printAt(gCtx, txt, x, y, gCanvas.height - (gCanvas.height * 0.875), gCanvas.width - (gCanvas.width * 0.125))
 // }
 
-function drawText(txt, x, y, color,fontSize ,fontFamily) {
+function drawText(txt, x, y, color, fontSize, fontFamily) {
     gCtx.restore()
     gCtx.textAlign = 'center';
     gCtx.font = `${fontSize + 30}px ${fontFamily}`;
@@ -109,7 +111,7 @@ function onSwitchLine() {
 function onClickCanvas(ev) {
     let clickPosY = ev.offsetY
     // console.log('click pos is posY:', clickPosY)
-    gMeme.txts.forEach((txt,idx) => {
+    gMeme.txts.forEach((txt, idx) => {
         // console.log(txt.locY)
         if (clickPosY <= txt.locY && clickPosY >= (txt.locY - (txt.size + 10))) {
             // console.log('hit');
@@ -122,3 +124,13 @@ function onClickCanvas(ev) {
     })
 }
 
+function onSaveToGalery() {
+    var imgContent = gCanvas.toDataURL('image/jpeg');
+    gSavedMemes.push({id: gId++, src: imgContent})
+    saveToStorage('editedImg', gSavedMemes) 
+}
+
+function downloadImg(elLink) {
+    var imgContent = gCanvas.toDataURL('image/jpeg');
+    elLink.href = imgContent
+}

@@ -86,8 +86,3 @@ function saveImages() {
     saveToStorage('images', gImgs)
 }
 
-function onDeleteImg(el) {
-  var imgId = el.dataset.id
-    deleteImg(imgId);
-    renderGallery()
-}
