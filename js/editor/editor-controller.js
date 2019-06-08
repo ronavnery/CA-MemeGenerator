@@ -3,7 +3,7 @@
 let gCanvas;
 let gCtx;
 let gTxt;
-let gSavedMemes = []
+let gSavedMemes;
 let gId = 1;
 
 function initEditor() {
@@ -126,11 +126,10 @@ function onClickCanvas(ev) {
 
 function onSaveToGalery() {
     var imgContent = gCanvas.toDataURL('image/jpeg');
+    if(!gSavedMemes) {
+        gSavedMemes = []
+    }
     gSavedMemes.push({id: gId++, src: imgContent})
     saveToStorage('editedImg', gSavedMemes) 
 }
 
-function downloadImg(elLink) {
-    var imgContent = gCanvas.toDataURL('image/jpeg');
-    elLink.href = imgContent
-}

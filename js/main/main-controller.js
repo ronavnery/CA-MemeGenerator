@@ -26,7 +26,7 @@ function addEventListeners() {
     });
 }
 
-function onEditClick(el) {
+function onImgClick(el) {
     let id = el.getAttribute('data-id');
     let src = el.getAttribute('src');
     drawCanvas();
@@ -61,13 +61,8 @@ function renderGallery() {
 function genGalleryItemHtml(id, src) {
     return `
     <section class="gallery-item">
-    <img class="gallery-img" data-id="${id}" src="${src}">
-    <div class="what-next-modal">
-    <div class="middle">
-    <button data-id="${id}" src="${src}" onclick="onEditClick(this)">Edit</button>
-    <button data-id="${id}" src="${src}" onclick="onDeleteImg(this)">Delete</button>
-    </div>
-    </div>
+    <img class="gallery-img" onclick=onImgClick(this) data-id="${id}" src="${src}">
+
     </section>`
 }
 

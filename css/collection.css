@@ -56,3 +56,29 @@ nav {
     height: 100%;
     object-fit: cover;
 }
+
+/* Hover image Gallery */
+.gallery-item:hover .gallery-img {
+    opacity: 0.3;
+}
+
+.gallery-item:hover .middle {
+  opacity: 1;
+}
+.what-next-modal {
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+    position: absolute;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    bottom: 4em;
+    left: 5em;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }

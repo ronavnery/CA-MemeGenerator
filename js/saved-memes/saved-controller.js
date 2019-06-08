@@ -11,7 +11,7 @@ function onInit() {
 }
 
 function renderGallery() {
-    // saveImages()
+    saveImages()
     let elGallery = document.querySelector('.collection');
     let htmlStr = '';
     // let images = getImagesForDisplay();
@@ -28,19 +28,25 @@ function genGalleryItemHtml(id, src) {
     <img class="gallery-img" data-id="${id}" src="${src}">
     <div class="what-next-modal">
     <div class="middle">
-    <button data-id="${id}" src="${src}" onclick="onEditClick(this)">Edit</button>
+
+    <button data-id="${id}" src="${src}" onclick="onDownloadImg(this)" download="my-img.jpg" >Download</button>
+    <button data-id="${id}" src="${src}" onclick="onShareImg(this)">Share</button>
     <button data-id="${id}" src="${src}" onclick="onDeleteImg(this)">Delete</button>
+  </a>
     </div>
     </div>
     </section>`
 }
 
-// function saveImages() {
-//     saveToStorage('editedImg', gImgs)
-// }
+
 
 function onDeleteImg(el) {
     var imgId = el.dataset.id
     deleteImg(imgId);
     renderGallery()
+}
+
+
+function onDownloadImg(elLink) {
+    downloadImg(elLink)
 }
