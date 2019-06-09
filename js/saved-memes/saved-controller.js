@@ -37,7 +37,7 @@ function genGalleryItemHtml(id, src) {
 
 function onDeleteImg(el) {
     let imgId = el.dataset.id
-    deleteImg(imgId);
+        deleteImg(imgId);
     // renderGallery()
 }
 
