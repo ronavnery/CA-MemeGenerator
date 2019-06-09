@@ -68,7 +68,6 @@ function setCurrLineFontFamily(fontFamily) {
 
 }
 
-
 function changeFontSize(el) {
     if (el === 'bigger') gCurrLine.size += 2
     else gCurrLine.size -= 2
@@ -93,9 +92,7 @@ function alignText(el){
     }
 }
 
-
-
 function downloadImg(elLink) {
-    var imgContent = gCanvas.toDataURL('image/jpeg');
+    let imgContent = gCanvas.toDataURL('image/jpeg');
     elLink.href = imgContent
 }

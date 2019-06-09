@@ -5,7 +5,7 @@ let gCtx;
 let gTxt;
 let gSavedMemes;
 let gId = 1;
-var gNewId = 1
+let gNewId = 1
 
 function initEditor() {
     gSavedMemes = loadFromStorage('editedImg')
@@ -125,6 +125,8 @@ function onSwitchLine() {
     switchLine();
     let elInput = document.querySelector('#meme-text-input');
     elInput.value = gCurrLine.txt;
+    elInput.focus();
+
 }
 
 function onClickCanvas(ev) {
@@ -145,7 +147,7 @@ function onClickCanvas(ev) {
 
 function onSaveToGalery() {
 
-    var imgContent = gCanvas.toDataURL('image/jpeg');
+    let imgContent = gCanvas.toDataURL('image/jpeg');
     if (!gSavedMemes) {
         gSavedMemes = []
     }
@@ -167,3 +169,4 @@ function onAlignText(el) {
 function onDownloadImg(el){
     downloadImg(el) 
 }
+

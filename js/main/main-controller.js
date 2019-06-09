@@ -37,6 +37,10 @@ function onImgClick(el) {
 function hideEditorModal() {
     let elEditModal = document.querySelector('.editor-modal');
     elEditModal.classList.add('hide');
+
+    let elInput = document.querySelector('#meme-text-input')
+    elInput.value = ''
+
     renderGallery()
 }
 
@@ -62,7 +66,6 @@ function genGalleryItemHtml(id, src) {
     return `
     <section class="gallery-item">
     <img class="gallery-img" onclick=onImgClick(this) data-id="${id}" src="${src}">
-
     </section>`
 }
 

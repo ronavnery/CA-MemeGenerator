@@ -3,7 +3,7 @@ console.log('service ready');
 
 
 function deleteImg(imgId){
-    var ImgIdx = gSavedMemes.findIndex(function (img) { 
+    let ImgIdx = gSavedMemes.findIndex(function (img) { 
         return img.id === +imgId
      });
     gSavedMemes.splice(ImgIdx, 1);
