@@ -192,6 +192,9 @@ footer {
 #download-file::before {
     content: url('../img/svgs/download-file.svg');
 }
+#trash::before {
+    content: url('../img/svgs/trash.svg');
+}
 
 /* Canvas */
 

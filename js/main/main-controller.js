@@ -28,7 +28,7 @@ function onImgClick(el) {
     drawCanvas();
     gMeme = createMeme(id, src);
     showEditorModal();
-
+    focusTxtInput()
     // Add img keywords to popular keywords list
     addKeywordsAsPopular(id);
 }
@@ -36,10 +36,7 @@ function onImgClick(el) {
 function hideEditorModal() {
     let elEditModal = document.querySelector('.editor-modal');
     elEditModal.classList.add('hide');
-
-    let elInput = document.querySelector('#meme-text-input')
-    elInput.value = ''
-
+    focusTxtInput()
     renderGallery()
     renderPopularList(); // Remove after we tranform editor modal into a page
 }

@@ -78,7 +78,7 @@ function draw() {
     drawCanvas();
     printImgOnCanvas();
     gMeme.txts.forEach(txt => {
-        drawText(txt.txt, txt.locX, txt.locY, txt.color, txt.size, txt.fontFamily)
+        drawText(txt.txt, txt.locX, txt.locY, txt.color, txt.size, txt.fontFamily, txt.align)
     }
     );
 }
@@ -96,9 +96,9 @@ function draw() {
 //     printAt(gCtx, txt, x, y, gCanvas.height - (gCanvas.height * 0.875), gCanvas.width - (gCanvas.width * 0.125))
 // }
 
-function drawText(txt, x, y, color, fontSize, fontFamily) {
+function drawText(txt, x, y, color, fontSize, fontFamily, align) {
     gCtx.restore()
-    gCtx.textAlign = 'center';
+    gCtx.Align = align;
     gCtx.font = `${fontSize + 30}px ${fontFamily}`;
     gCtx.lineWidth = 5;
     gCtx.strokeStyle = 'black';
@@ -116,17 +116,13 @@ function onPickColor(color) {
 function onAddNewLine() {
     // console.log('canvas width on Add new line is ', gCanvas.width)
     addNewLine();
-    let elInput = document.querySelector('#meme-text-input');
-    elInput.focus();
-    elInput.value = '';
+    focusTxtInput()
+
 }
 
 function onSwitchLine() {
     switchLine();
-    let elInput = document.querySelector('#meme-text-input');
-    elInput.value = gCurrLine.txt;
-    elInput.focus();
-
+    focusTxtInput()
 }
 
 function onClickCanvas(ev) {
@@ -138,9 +134,7 @@ function onClickCanvas(ev) {
             // console.log('hit');
             // console.log('idx is', idx)
             switchLine(idx);
-            let elInput = document.querySelector('#meme-text-input');
-            elInput.value = gCurrLine.txt;
-            elInput.focus();
+            focusTxtInput()
         }
     })
 }
@@ -162,11 +156,25 @@ function onChangeFontSize(el) {
 
 function onAlignText(el) {
     alignText(el)
-
     draw()
 }
 
-function onDownloadImg(el){
-    downloadImg(el) 
+function onDownloadImg(el) {
+    downloadImg(el)
 }
 
+function onDeleteLine() {
+    deleteLine()
+    focusTxtInput()
+    draw()
+}
+
+function focusTxtInput() {
+    let elInput = document.querySelector('#meme-text-input');
+    elInput.focus();
+    if (gCurrLine) {
+        if (gCurrLine.txt === '') elInput.value = '';
+        else elInput.value = gCurrLine.txt;
+
+    }
+}

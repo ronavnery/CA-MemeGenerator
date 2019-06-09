@@ -74,25 +74,35 @@ function changeFontSize(el) {
 }
 
 function alignText(el){
-    const x = gCanvas.width / 2;
+    const halfWidth = gCanvas.width / 2;
     if (el === 'left-aligned') {
         console.log(el);
         
-        gCtx.textAlign = 'left';
-        gCurrLine.align = gCtx.fillText(gMeme.txts[0].txt, x, 90);
+        gCurrLine.align = 'left';
+        // gCtx.fillText('left-aligned', halfWidth, 80);
+        gCurrLine.locX = 0;
     }
 
     else if (el === 'center-aligned') {
-        gCtx.textAlign = 'center';
-        gCtx.fillText(gMeme.txts[0].txt, x, 85);
+        gCurrLine.align = 'center';
+        // gCtx.fillText('center-aligned', halfWidth, 120);
+        gCurrLine.locX = 200;
+        // gCtx.fillText(gMeme.txts[0].txt, x, 85);
     }
     else {
-        gCtx.textAlign = 'right';
-        gCtx.fillText(gMeme.txts[0].txt, x, 130);
+        gCurrLine.align = 'right';
+        gCtx.fillText('right-aligned', halfWidth, 350);
+        gCurrLine.locX = 320;
+        // gCtx.fillText(gMeme.txts[0].txt, x, 130);
     }
+    // return gCtx.textAlign
 }
 
 function downloadImg(elLink) {
     let imgContent = gCanvas.toDataURL('image/jpeg');
     elLink.href = imgContent
+}
+
+function deleteLine(){
+gCurrLine.txt = ''
 }
