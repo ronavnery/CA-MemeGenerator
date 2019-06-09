@@ -8,7 +8,8 @@ function deleteImg(imgId){
      });
     gSavedMemes.splice(ImgIdx, 1);
     saveImages();
-    renderGallery()
+    // renderGallery()
+    onInit()
 }
 
 

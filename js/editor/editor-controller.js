@@ -5,6 +5,7 @@ let gCtx;
 let gTxt;
 let gSavedMemes;
 let gId = 1;
+var gNewId = 1
 
 function initEditor() {
     gSavedMemes = loadFromStorage('editedImg')
@@ -142,11 +143,12 @@ function onClickCanvas(ev) {
 }
 
 function onSaveToGalery() {
+
     var imgContent = gCanvas.toDataURL('image/jpeg');
     if (!gSavedMemes) {
         gSavedMemes = []
     }
-    gSavedMemes.push({ id: gId++, src: imgContent })
+    gSavedMemes.push({ id: gNewId++, src: imgContent })
     saveToStorage('editedImg', gSavedMemes)
 }
 
