@@ -17,10 +17,3 @@ function saveImages() {
     saveToStorage('editedImg', gSavedMemes)
 }
 
-function downloadImg(elLink) {
-    console.log('g');
-    
-   const canvas = document.querySelector('canvas')
-    var imgContent = canvas.toDataURL('image/jpeg');
-    elLink.href = imgContent
-}

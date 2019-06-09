@@ -45,8 +45,11 @@
                         onkeyup="onTxtInput(this)" />
                     <input class="jscolor {hash:true}" value="#ffffff" onchange="onPickColor(this.value)">
                     <div class="font-size-container">
-                        <button id="bigger" onclick="changeFontSize(this.id)"></button>
-                        <button id="smaller" onclick="changeFontSize(this.id)"></button>
+                        <button class="svg-size" id="bigger" onclick="onChangeFontSize(this.id)"></button>
+                        <button class="svg-size" id="smaller" onclick="onChangeFontSize(this.id)"></button>
+                        <button class="align-button svg-size" id="left-aligned" onclick="onAlignText(this.id)"></button>
+                        <button class="align-button svg-size" id="center-aligned" onclick="onAlignText(this.id)"></button>
+                        <button class="align-button svg-size" id="right-aligned" onclick="onAlignText(this.id)"></button>
                     </div>
                     <select id="change-font-family" onchange="onChangeFontFamily();">
                         <option>Impact</option>
@@ -59,6 +62,7 @@
                     <button onclick="onAddNewLine()">New Line</button>
                     <button onclick="onSwitchLine()">Switch Line</button>
                     <button onclick="onSaveToGalery()">Save To Meme Galery</button>
+                    <button><a href="#" class="download-file" onclick="onDownloadImg(this)" download="my-img.jpg">Download</a></button>
 
                 </div>
             </div>

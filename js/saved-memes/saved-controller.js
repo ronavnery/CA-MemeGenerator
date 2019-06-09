@@ -25,14 +25,13 @@ function renderGallery() {
 function genGalleryItemHtml(id, src) {
     return `
     <section class="gallery-item">
-    <img class="gallery-img" data-id="${id}" src="${src}">
+    <img class="gallery-img id${id}" data-id="${id}" src="${src}">
     <div class="what-next-modal">
     <div class="middle">
 
-    <button data-id="${id}" src="${src}" onclick="onDownloadImg(this)" download="my-img.jpg" >Download</button>
     <button data-id="${id}" src="${src}" onclick="onShareImg(this)">Share</button>
     <button data-id="${id}" src="${src}" onclick="onDeleteImg(this)">Delete</button>
-  </a>
+  
     </div>
     </div>
     </section>`
@@ -49,5 +48,7 @@ function onDeleteImg(el) {
 
 
 function onDownloadImg(elLink) {
+    console.log(elLink);
+    
     downloadImg(elLink)
 }

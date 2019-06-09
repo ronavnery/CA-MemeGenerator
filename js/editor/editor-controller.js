@@ -69,6 +69,7 @@ function onChangeFontFamily() {
     let selector = document.querySelector('#change-font-family');
     let fontFamily = selector.options[selector.selectedIndex].value;
     setCurrLineFontFamily(fontFamily);
+    draw()
 }
 
 // Nathalie: Add function to clear line from gMeme model and draw 
@@ -152,3 +153,17 @@ function onSaveToGalery() {
     saveToStorage('editedImg', gSavedMemes)
 }
 
+function onChangeFontSize(el) {
+    changeFontSize(el)
+    draw()
+}
+
+function onAlignText(el) {
+    alignText(el)
+
+    draw()
+}
+
+function onDownloadImg(el){
+    downloadImg(el) 
+}
