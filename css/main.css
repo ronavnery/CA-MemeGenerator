@@ -73,6 +73,33 @@ nav {
     height: 150px;
 }
 
+.popular-list > * {
+    margin: 0 10px;
+}
+
+.popular-0 {
+    font-size: 7em;
+}
+
+.popular-1 {
+    font-size: 5em;
+}
+
+.popular-2 {
+    font-size: 4em;
+}
+
+.popular-3 {
+    font-size: 3em;
+}
+
+.popular-4 {
+    font-size: 2em;
+}
+
+.popular-5 {
+    font-size: 1em;
+}
 
 /* Footer */
 

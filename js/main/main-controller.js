@@ -3,12 +3,7 @@
 let gIsSearchOn;
 
 function onInit() {
-    gImgs = loadFromStorage('images')
-    if (!gImgs || !gImgs.length) {
-        gImgs = createImgs();
-    }
-
-    saveImages()
+    init();
     renderGallery();
     hideEditorModal();
     addEventListeners();
@@ -33,12 +28,16 @@ function onImgClick(el) {
     drawCanvas();
     gMeme = createMeme(id, src);
     showEditorModal();
+
+    // Add img keywords to popular keywords list
+    addKeywordsAsPopular(id);
 }
 
 function hideEditorModal() {
     let elEditModal = document.querySelector('.editor-modal');
     elEditModal.classList.add('hide');
     renderGallery()
+    renderPopularList(); // Remove after we tranform editor modal into a page
 }
 
 function showEditorModal() {
@@ -48,7 +47,7 @@ function showEditorModal() {
 }
 
 function renderGallery() {
-    saveImages()
+    save();
     let elGallery = document.querySelector('.gallery');
     let htmlStr = '';
     let images = getImagesForDisplay();
@@ -78,21 +77,20 @@ function renderDataList() {
 
 }
 
-function saveImages() {
-    saveToStorage('images', gImgs)
-}
-
-
 function renderPopularList() {
     let elPopularList = document.querySelector('.popular-list');
-    let strHtml = ''
-    let keywords = getKeywordsDataList(false);
-    let res = {};
-    keywords.forEach(keyword=> {
-        if (!res[keyword]) res[keyword] = 0;
-        res[keyword]++;
+    let allWordsAsEls = []
+    let mostPopularSearches = getMostPopularSearches();
+    for (let i = 0; i < mostPopularSearches.length; i++) {
+        allWordsAsEls.push(`<span class="popular-${i}">${mostPopularSearches[i]}</span>`)
+    }
+
+    // Rendering the list in a random order
+    let strHtml = '';
+    let randomUniqueNumList = genRandomUniqueNumList(allWordsAsEls.length);
+    randomUniqueNumList.forEach(num => {
+        strHtml += allWordsAsEls[num];
     })
-    console.log(res);
     elPopularList.innerHTML = strHtml
 }
 

@@ -1,9 +1,64 @@
 'use strict';
 
-let gNextId = 1;
+let gNextId = 0;
 let gImgs;
 let gMeme;
 let gSearchResults;
+let gMostPopularKeywords;
+
+function init() {
+    load();
+    saveImages();
+}
+
+function save() {
+    savePopularList();
+    saveImages();
+}
+
+function load() {
+    loadImages();
+    loadPopularList();
+}
+
+function loadImages() {
+    try {
+        gImgs = loadFromStorage('images')
+    }
+    catch (err) {
+        console.log('load from storage failed. error:', err)
+        gImgs = createImgs();
+    }
+    finally {
+        if (!gImgs || !gImgs.length) {
+            gImgs = createImgs();
+        }
+    }
+}
+
+function saveImages() {
+    saveToStorage('images', gImgs)
+}
+
+function savePopularList() {
+    console.log('saving');
+    saveToStorage('popular-list', gMostPopularKeywords);
+}
+
+function loadPopularList() {
+    try {
+        gMostPopularKeywords = loadFromStorage('popular-list');
+    }
+    catch (err) {
+        console.log('popular list load from storage failed. error:', err)
+        gMostPopularKeywords = getInitialPopularList();
+    }
+    finally {
+        if (!gMostPopularKeywords || !gMostPopularKeywords.length) {
+            gMostPopularKeywords = getInitialPopularList();
+        }
+    }
+}
 
 function createMeme(id, src, color) {
     gMemeNumOfLines = 1;
@@ -81,3 +136,35 @@ function getKeywordsDataList(isUnique = true) {
     } else return keywords;
 }
 
+function getInitialPopularList() {
+    return ['baby','baby', 'movie','movie','movie', 'politics','funny','funny','funny','funny']
+}
+
+function getMostPopularSearches() {
+    // Object as map for the most popular searches
+    let res = {};
+    gMostPopularKeywords.forEach(keyword => {
+        if (!res[keyword]) res[keyword] = 0;
+        res[keyword]++;
+    })
+
+    // Pushes to a new array the highest 6 values.
+    let mostPopularSearches = [];
+    let top;
+    for (let i = 0; i < 6; i++) {
+        top = Object.keys(res).reduce((a, b) => res[a] > res[b] ? a : b);
+        res[top] = 0;
+        mostPopularSearches.push(top);
+    }
+
+    // Removes duplicates
+    mostPopularSearches = mostPopularSearches.filter(function(item, pos) {
+        return mostPopularSearches.indexOf(item) == pos;
+    })
+
+    return mostPopularSearches;
+}
+
+function addKeywordsAsPopular(id) {
+    gMostPopularKeywords.push(...gImgs[id].keywords);
+}

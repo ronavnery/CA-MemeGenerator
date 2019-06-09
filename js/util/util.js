@@ -1,5 +1,5 @@
 'use strict';
-
+ 
 
 // drawImageProp NOT USED AT THE MOMENT. DELETE IF NOT NEEDED
 function drawImageProp(ctx, img, x, y, w, h, offsetX, offsetY) {
@@ -80,4 +80,19 @@ function saveToStorage(key, value) {
 
 function loadFromStorage(key) {
     return JSON.parse(localStorage.getItem(key))
+}
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+  }
+
+function genRandomUniqueNumList(length) {
+    var randomUniqueNumList = []
+    while (randomUniqueNumList.length < length) {
+        var r = getRandomIntInclusive(0, length - 1);
+        if (randomUniqueNumList.indexOf(r) === -1) randomUniqueNumList.push(r);
+    }
+    return randomUniqueNumList;
 }
