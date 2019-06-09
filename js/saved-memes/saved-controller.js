@@ -29,8 +29,8 @@ function genGalleryItemHtml(id, src) {
     <div class="what-next-modal">
     <div class="middle">
 
-    <button data-id="${id}" src="${src}" onclick="onShareImg(this)">Share</button>
-    <button data-id="${id}" src="${src}" onclick="onDeleteImg(this)">Delete</button>
+    <button class="svg-size" data-id="${id}" src="${src}" onclick="onShareImg(this)">Share</button>
+    <button class="svg-size" data-id="${id}" src="${src}" onclick="onDeleteImg(this)">Delete</button>
   
     </div>
     </div>

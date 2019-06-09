@@ -5,6 +5,16 @@ body {
     background-color: rgba(11, 121, 211, 0.8);
 }
 
+button, select {
+    background-color: rgba(255, 255, 255, 0.541);
+    border: none;
+    font-weight: bold;
+}
+
+button:hover, select:hover {
+    background-color: rgba(255, 255, 255, 0.774);
+}
+
 button, img {
     cursor: pointer;
 }
@@ -139,18 +149,23 @@ footer {
     text-align: center;
 }
 
+.txt-buttons {
+    display: flex;
+    flex-direction: column;
+}
 
-.svg-size{
-    background-color: rgba(255, 255, 255, 0.541);
+.txt-buttons button , select{
     border: none;
+    border-radius: 10px;
+    margin: 2px;
+    padding: 10px;
+}
+
+.svg-buttons {
     border-radius: 20%;
     margin: 5px;
     width: 50px;
     height: 50px;
-}
-
-.svg-size:hover {
-    background-color: rgba(255, 255, 255, 0.774);
 }
 
 #left-aligned::before {
@@ -173,10 +188,9 @@ footer {
     content: url('../img/svgs/decrease-font-size.svg');
 }
 
-#download-file::before{
+#download-file::before {
     content: url('../img/svgs/download-file.svg');
 }
-
 
 /* Canvas */
 
