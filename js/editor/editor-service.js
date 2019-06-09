@@ -9,7 +9,6 @@ function pickColor(color) {
     gCurrLine.color = color
     // if (color === undefined) gCurrLine.color
     // else gCurrLine.color = color;
-
     draw();
 }
 
@@ -38,10 +37,11 @@ function createLine() {
     return {
         locX: gCanvas.width / 2,
         locY: locY,
+        width: getCurrLineWidth(),
         txt: '',
         fontFamily: 'Impact',
         size: 20,
-        align: 'left',
+        align: 'center',
         color: 'white'
     }
 }
@@ -68,6 +68,10 @@ function setCurrLineFontFamily(fontFamily) {
 
 }
 
+function getCurrLineWidth(){
+return gCtx.measureText(gCanvas.txt).width;
+}
+
 function changeFontSize(el) {
     if (el === 'bigger') gCurrLine.size += 2
     else gCurrLine.size -= 2
@@ -85,17 +89,13 @@ function alignText(el){
 
     else if (el === 'center-aligned') {
         gCurrLine.align = 'center';
-        // gCtx.fillText('center-aligned', halfWidth, 120);
         gCurrLine.locX = 200;
-        // gCtx.fillText(gMeme.txts[0].txt, x, 85);
     }
     else {
         gCurrLine.align = 'right';
         gCtx.fillText('right-aligned', halfWidth, 350);
         gCurrLine.locX = 320;
-        // gCtx.fillText(gMeme.txts[0].txt, x, 130);
     }
-    // return gCtx.textAlign
 }
 
 function downloadImg(elLink) {

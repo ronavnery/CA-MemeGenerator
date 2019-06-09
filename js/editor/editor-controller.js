@@ -56,6 +56,7 @@ function onTxtInput(el) {
     setTxtToCurrLine(txt)
     onChangeFontFamily()
     onPickColor(gCurrLine.color)
+    getCurrLineWidth()
     setTxt(txt)
     draw();
 }
@@ -78,7 +79,7 @@ function draw() {
     drawCanvas();
     printImgOnCanvas();
     gMeme.txts.forEach(txt => {
-        drawText(txt.txt, txt.locX, txt.locY, txt.color, txt.size, txt.fontFamily, txt.align)
+        drawText(txt.txt, txt.locX, txt.locY, txt.color, txt.size, txt.fontFamily, txt.align, txt.lineWidth)
     }
     );
 }
@@ -86,7 +87,6 @@ function draw() {
 
 // function drawText(txt, x, y, color) {
 //     gCtx.restore()
-//     gCtx.textAlign = 'center';
 //     gCtx.font = '40px Impact';
 //     gCtx.lineWidth = 5;
 //     gCtx.strokeStyle = 'black';
@@ -98,7 +98,9 @@ function draw() {
 
 function drawText(txt, x, y, color, fontSize, fontFamily, align) {
     gCtx.restore()
+    gCtx.textAlign = 'center';
     gCtx.Align = align;
+    
     gCtx.font = `${fontSize + 30}px ${fontFamily}`;
     gCtx.lineWidth = 5;
     gCtx.strokeStyle = 'black';
