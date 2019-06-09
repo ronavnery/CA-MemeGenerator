@@ -5,6 +5,7 @@ let gCtx;
 let gTxt;
 let gSavedMemes;
 let gId = 1;
+var gNewId = 1
 
 function initEditor() {
     gSavedMemes = loadFromStorage('editedImg')
@@ -68,6 +69,7 @@ function onChangeFontFamily() {
     let selector = document.querySelector('#change-font-family');
     let fontFamily = selector.options[selector.selectedIndex].value;
     setCurrLineFontFamily(fontFamily);
+    draw()
 }
 
 // Nathalie: Add function to clear line from gMeme model and draw 
@@ -142,11 +144,26 @@ function onClickCanvas(ev) {
 }
 
 function onSaveToGalery() {
+
     var imgContent = gCanvas.toDataURL('image/jpeg');
     if (!gSavedMemes) {
         gSavedMemes = []
     }
-    gSavedMemes.push({ id: gId++, src: imgContent })
+    gSavedMemes.push({ id: gNewId++, src: imgContent })
     saveToStorage('editedImg', gSavedMemes)
 }
 
+function onChangeFontSize(el) {
+    changeFontSize(el)
+    draw()
+}
+
+function onAlignText(el) {
+    alignText(el)
+
+    draw()
+}
+
+function onDownloadImg(el){
+    downloadImg(el) 
+}

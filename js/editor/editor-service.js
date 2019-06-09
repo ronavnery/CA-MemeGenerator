@@ -65,12 +65,37 @@ function setTxt(txt) {
 
 function setCurrLineFontFamily(fontFamily) {
     gCurrLine.fontFamily = fontFamily
-    draw()
+
 }
 
 
 function changeFontSize(el) {
     if (el === 'bigger') gCurrLine.size += 2
     else gCurrLine.size -= 2
-    draw()
+}
+
+function alignText(el){
+    const x = gCanvas.width / 2;
+    if (el === 'left-aligned') {
+        console.log(el);
+        
+        gCtx.textAlign = 'left';
+        gCurrLine.align = gCtx.fillText(gMeme.txts[0].txt, x, 90);
+    }
+
+    else if (el === 'center-aligned') {
+        gCtx.textAlign = 'center';
+        gCtx.fillText(gMeme.txts[0].txt, x, 85);
+    }
+    else {
+        gCtx.textAlign = 'right';
+        gCtx.fillText(gMeme.txts[0].txt, x, 130);
+    }
+}
+
+
+
+function downloadImg(elLink) {
+    var imgContent = gCanvas.toDataURL('image/jpeg');
+    elLink.href = imgContent
 }
