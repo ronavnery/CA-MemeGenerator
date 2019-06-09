@@ -45,12 +45,14 @@
                         onkeyup="onTxtInput(this)" />
                     <input class="jscolor {hash:true}" value="#ffffff" onchange="onPickColor(this.value)">
                     <div class="font-size-container">
-                        <button class="svg-size" id="bigger" onclick="onChangeFontSize(this.id)"></button>
-                        <button class="svg-size" id="smaller" onclick="onChangeFontSize(this.id)"></button>
-                        <button class="align-button svg-size" id="left-aligned" onclick="onAlignText(this.id)"></button>
-                        <button class="align-button svg-size" id="center-aligned" onclick="onAlignText(this.id)"></button>
-                        <button class="align-button svg-size" id="right-aligned" onclick="onAlignText(this.id)"></button>
+                        <button class="svg-buttons" id="bigger" onclick="onChangeFontSize(this.id)"></button>
+                        <button class="svg-buttons" id="smaller" onclick="onChangeFontSize(this.id)"></button>
+                        <button class="align-button svg-buttons" id="left-aligned" onclick="onAlignText(this.id)"></button>
+                        <button class="align-button svg-buttons" id="center-aligned" onclick="onAlignText(this.id)"></button>
+                        <button class="align-button svg-buttons" id="right-aligned" onclick="onAlignText(this.id)"></button>
                     </div>
+
+                    <section class="txt-buttons">
                     <select id="change-font-family" onchange="onChangeFontFamily();">
                         <option>Impact</option>
                         <option>Ero</option>
@@ -63,7 +65,7 @@
                     <button onclick="onSwitchLine()">Switch Line</button>
                     <button onclick="onSaveToGalery()">Save To Meme Galery</button>
                     <button><a href="#" class="download-file" onclick="onDownloadImg(this)" download="my-img.jpg">Download</a></button>
-
+                </section>
                 </div>
             </div>
         </div>
