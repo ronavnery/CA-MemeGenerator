@@ -13,6 +13,7 @@ function onInit() {
     hideEditorModal();
     addEventListeners();
     renderDataList();
+    renderPopularList();
 }
 
 function addEventListeners() {
@@ -79,5 +80,19 @@ function renderDataList() {
 
 function saveImages() {
     saveToStorage('images', gImgs)
+}
+
+
+function renderPopularList() {
+    let elPopularList = document.querySelector('.popular-list');
+    let strHtml = ''
+    let keywords = getKeywordsDataList(false);
+    let res = {};
+    keywords.forEach(keyword=> {
+        if (!res[keyword]) res[keyword] = 0;
+        res[keyword]++;
+    })
+    console.log(res);
+    elPopularList.innerHTML = strHtml
 }
 
