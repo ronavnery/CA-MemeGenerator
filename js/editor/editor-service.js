@@ -29,9 +29,10 @@ function addNewLine() {
 
 // move to future editor service
 function createLine() {
-    if (gMemeNumOfLines === 1) var locY = gCanvas.height * 0.15;
-    else if (gMemeNumOfLines === 2) var locY = gCanvas.height * 0.9;
-    else var locY = gCanvas.height / 2
+    let locY;
+    if (gMemeNumOfLines === 1)  locY = gCanvas.height * 0.125;
+    else if (gMemeNumOfLines === 2)  locY = gCanvas.height * 0.875;
+    else  locY = gCanvas.height / 2
     gMemeNumOfLines++;
     console.log('font size is', gCanvas.height / 10)
     return {
@@ -74,28 +75,25 @@ function getCurrLineWidth() {
 }
 
 function changeFontSize(el) {
-    if (el === 'bigger') gCurrLine.size += 2
-    else gCurrLine.size -= 2
+    if (el === 'bigger') gCurrLine.size +=5;
+    else gCurrLine.size -= 5;
 }
 
 function alignText(el) {
-    const halfWidth = gCanvas.width / 2;
+    // const halfWidth = gCurrLine.width / 2;
     if (el === 'left-aligned') {
-        console.log(el);
-
-        gCurrLine.align = 'left';
-        // gCtx.fillText('left-aligned', halfWidth, 80);
-        gCurrLine.locX = 50;
+        gCurrLine.locX -= 10;
     }
 
-    else if (el === 'center-aligned') {
-        gCurrLine.align = 'center';
-        gCurrLine.locX = 200;
+    else if (el === 'up-aligned') {
+        gCurrLine.locY -= 10;
+    }
+    else if (el === 'right-aligned') {
+        gCurrLine.align = 'right';
+        gCurrLine.locX += 10; 
     }
     else {
-        gCurrLine.align = 'right';
-        gCtx.fillText('right-aligned', halfWidth, 350);
-        gCurrLine.locX = 320;
+        gCurrLine.locY += 10; 
     }
 }
 

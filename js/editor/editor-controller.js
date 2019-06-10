@@ -124,6 +124,8 @@ function onSwitchLine() {
 }
 
 function onClickCanvas(ev) {
+    console.log('x', ev.offsetX, 'y', ev.offsetX);
+    
     let clickPosY = ev.offsetY
     // console.log('click pos is posY:', clickPosY)
     gMeme.txts.forEach((txt, idx) => {

@@ -89,7 +89,9 @@ function renderDataList() {
 //     elPopularList.innerHTML = strHtml
 // }
 
-function onShowMyMimes() {
+function onShowMyMimes(ev) {
+    console.log('x', ev.x, 'y', ev.y);
+    
     let elShowMyMimesBtn = document.querySelector('#show-my-mimes');
     if (gIsShowingMyMemes) {
         elShowMyMimesBtn.innerHTML = 'Show my mimes';
