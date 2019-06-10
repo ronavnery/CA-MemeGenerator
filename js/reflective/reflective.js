@@ -2,8 +2,8 @@
 
 // setTimeout(renderReflectiveGallery, 1000);
 
-function renderReflectiveGallery(imgs=getImagesForDisplay(), isBase64=false) {
-    
+function renderReflectiveGallery(imgs = getImagesForDisplay(), isBase64 = false) {
+
     const NUM_ROWS = 2;
     const IMAGES = [];
     let imgsToDisplay = imgs;
@@ -74,6 +74,8 @@ function renderReflectiveGallery(imgs=getImagesForDisplay(), isBase64=false) {
     }, 10);
 
     window.addEventListener('wheel', scrollWall);
+
 }
+
 
 

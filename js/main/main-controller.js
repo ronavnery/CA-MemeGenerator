@@ -44,7 +44,7 @@ function hideEditorModal() {
     renderReflectiveGallery();
     // renderPopularList(); // Remove after we tranform editor modal into a page
     focusTxtInput()
-    renderPopularList(); // Remove after we tranform editor modal into a page
+    // renderPopularList(); // Remove after we tranform editor modal into a page
 }
 
 function showEditorModal() {
