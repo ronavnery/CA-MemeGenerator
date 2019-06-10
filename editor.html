@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" type="text/css" href="css/reflective.css" />
 </head>
+
 <body onload="initEditor()">
     <section class="editor-modal">
         <div class="modal-content ">
@@ -26,30 +28,32 @@
                         <button class="svg-buttons" id="smaller" onclick="onChangeFontSize(this.id)"></button>
                         <button class="align-button svg-buttons" id="left-aligned"
                             onclick="onAlignText(this.id)"></button>
-                        <button class="align-button svg-buttons" id="center-aligned"
+                        <button class="align-button svg-buttons" id="up-aligned"
                             onclick="onAlignText(this.id)"></button>
                         <button class="align-button svg-buttons" id="right-aligned"
                             onclick="onAlignText(this.id)"></button>
+                        <button class="align-button svg-buttons" id="down-aligned"
+                            onclick="onAlignText(this.id)"></button>
                     </div>
 
-                    <section class="txt-buttons">
-                        <select id="change-font-family" onchange="onChangeFontFamily();">
-                            <option>Impact</option>
-                            <option>Ero</option>
-                            <option>Lato</option>
-                            <option>Major</option>
-                            <option>Verdana</option>
-                            <option>Lucida Sans Unicode</option>
-                        </select>
-                        <button onclick="onAddNewLine()">New Line</button>
-                        <button onclick="onSwitchLine()">Switch Line</button>
-                        <button onclick="onSaveToGalery()">Save To Meme Galery</button>
-                        <button><a href="#" class="download-file" onclick="onDownloadImg(this)"
-                                download="my-meme.jpg">Download</a></button>
-                    </section>
+                        <section class="txt-buttons">
+                            <select id="change-font-family" onchange="onChangeFontFamily();">
+                                <option>Impact</option>
+                                <option>Ero</option>
+                                <option>Lato</option>
+                                <option>Major</option>
+                                <option>Verdana</option>
+                                <option>Lucida Sans Unicode</option>
+                            </select>
+                            <button onclick="onAddNewLine()">New Line</button>
+                            <button onclick="onSwitchLine()">Switch Line</button>
+                            <button onclick="onSaveToGalery()">Save To Meme Galery</button>
+                            <button><a href="#" class="download-file" onclick="onDownloadImg(this)"
+                                    download="my-meme.jpg">Download</a></button>
+                        </section>
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <script src="jquery/jquery.js"></script>
@@ -62,4 +66,5 @@
     <script src="js/upload-service/upload-service.js"></script>
     <script src="js/reflective/reflective.js"></script>
 </body>
+
 </html>

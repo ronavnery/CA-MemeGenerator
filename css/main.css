@@ -174,13 +174,33 @@ footer {
     content: url('../img/svgs/left-aligned.svg');
 }
 
-#center-aligned::before {
-    content: url('../img/svgs/center-aligned.svg');
-}
 
 #right-aligned::before {
-    content: url('../img/svgs/right-aligned.svg');
+    content: url('../img/svgs/left-aligned.svg');
 }
+
+#right-aligned {
+    transform: rotateY(180deg);
+}
+
+
+#up-aligned {
+    transform: rotate(90deg);
+}
+
+#up-aligned::before {
+    content: url('../img/svgs/left-aligned.svg');
+}
+
+#down-aligned {
+    transform: rotate(-90deg);
+}
+
+#down-aligned::before {
+    content: url('../img/svgs/left-aligned.svg');
+}
+
+
 
 #bigger::before {
     content: url('../img/svgs/increase-font-size.svg');
