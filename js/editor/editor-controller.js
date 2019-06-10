@@ -51,8 +51,6 @@ function printImgOnCanvas() {
 
 function onTxtInput(el) {
     let txt = el.value;
-    // Nathalie: Add functions for alignment(left-right), alignment(up-down), color, font-family,
-    // pickColor();
     setTxtToCurrLine(txt)
     onChangeFontFamily()
     onPickColor(gCurrLine.color)
@@ -72,8 +70,6 @@ function onChangeFontFamily() {
     setCurrLineFontFamily(fontFamily);
     draw()
 }
-
-// Nathalie: Add function to clear line from gMeme model and draw 
 
 function draw() {
     drawCanvas();

@@ -47,7 +47,7 @@ function createLine() {
 }
 
 // move to future editor service
-function switchLine(lineIdx='none') {
+function switchLine(lineIdx = 'none') {
     // moves to specified line idx if given as parameter, else, goes one forward
     if (lineIdx !== 'none') {
         gCurrLine = gMeme.txts[lineIdx];
@@ -68,8 +68,9 @@ function setCurrLineFontFamily(fontFamily) {
 
 }
 
-function getCurrLineWidth(){
-return gCtx.measureText(gCanvas.txt).width;
+function getCurrLineWidth() {
+    if (!gCurrLine) return
+    gCurrLine.width = gCtx.measureText(gCurrLine.txt).width;
 }
 
 function changeFontSize(el) {
@@ -77,14 +78,14 @@ function changeFontSize(el) {
     else gCurrLine.size -= 2
 }
 
-function alignText(el){
+function alignText(el) {
     const halfWidth = gCanvas.width / 2;
     if (el === 'left-aligned') {
         console.log(el);
-        
+
         gCurrLine.align = 'left';
         // gCtx.fillText('left-aligned', halfWidth, 80);
-        gCurrLine.locX = 0;
+        gCurrLine.locX = 50;
     }
 
     else if (el === 'center-aligned') {
@@ -103,6 +104,6 @@ function downloadImg(elLink) {
     elLink.href = imgContent
 }
 
-function deleteLine(){
-gCurrLine.txt = ''
+function deleteLine() {
+    gCurrLine.txt = ''
 }
