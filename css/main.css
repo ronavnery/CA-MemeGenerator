@@ -6,6 +6,7 @@ body {
     /* overflow: hidden; */
 }
 
+
 button, select {
     background-color: rgba(255, 255, 255, 0.541);
     border: none;
@@ -53,6 +54,10 @@ nav {
 .input-container {
     margin: 20px;
     padding: 20px;
+}
+
+#search-input {
+    margin-bottom: 1em;
 }
 
 /* Gallery */

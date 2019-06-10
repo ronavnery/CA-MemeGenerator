@@ -3,8 +3,13 @@
 // setTimeout(renderReflectiveGallery, 1000);
 
 function renderReflectiveGallery(imgs = getImagesForDisplay(), isBase64 = false) {
+    let isBelow700 = window.matchMedia("(max-width: 700px)").matches
+    let numOfRows;
+    if (isBelow700) {
+        numOfRows = 3;
+    } else numOfRows = 2;
 
-    const NUM_ROWS = 2;
+    const NUM_ROWS = numOfRows;
     const IMAGES = [];
     let imgsToDisplay = imgs;
     const NUM_IMAGES = imgsToDisplay.length;
@@ -66,6 +71,10 @@ function renderReflectiveGallery(imgs = getImagesForDisplay(), isBase64 = false)
             if (callNow) func.apply(context, args);
         };
     };
+
+
+
+      
 
     let scrollPosition = 0;
     let scrollWall = debounce((event) => {

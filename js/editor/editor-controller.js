@@ -75,6 +75,7 @@ function draw() {
     drawCanvas();
     printImgOnCanvas();
     gMeme.txts.forEach(txt => {
+        console.log('font size  on draw is', txt.size)
         drawText(txt.txt, txt.locX, txt.locY, txt.color, txt.size, txt.fontFamily, txt.align, txt.lineWidth)
     }
     );
@@ -96,8 +97,7 @@ function drawText(txt, x, y, color, fontSize, fontFamily, align) {
     gCtx.restore()
     gCtx.textAlign = 'center';
     gCtx.Align = align;
-    
-    gCtx.font = `${fontSize + 30}px ${fontFamily}`;
+    gCtx.font = `${fontSize}px ${fontFamily}`;
     gCtx.lineWidth = 5;
     gCtx.strokeStyle = 'black';
     gCtx.fillStyle = color;

@@ -17,6 +17,10 @@ function addEventListeners() {
     let elWall = document.querySelector('#wall');
     elSearchInput.addEventListener('input', function () {
         elWall.style.transform = 'rotateY(45deg) translateX(0px)' // Scrolling to beginning of gallery on search
+        let isBelow700 = window.matchMedia("(max-width: 700px)").matches
+        if (isBelow700) {
+            elWall.style.transform = ''
+        }
         let searchTerm = (this.value).toLowerCase();
         if (searchTerm.length) gIsSearchOn = true;
         else gIsSearchOn = false;
@@ -56,26 +60,6 @@ function showEditorModal() {
 
     initEditor();
 }
-
-// function renderGallery() {
-//     save();
-//     let elGallery = document.querySelector('.gallery');
-//     let htmlStr = '';
-//     let images = getImagesForDisplay();
-
-//     images.forEach(img => {
-//         htmlStr += genGalleryItemHtml(img.id, img.src);
-//     })
-//     elGallery.innerHTML = htmlStr;
-// }
-
-// function genGalleryItemHtml(id, src) {
-//     return `
-//     <section class="gallery-item">
-//     <img class="gallery-img" onclick=onImgClick(this) data-id="${id}" src="${src}">
-
-//     </section>`
-// }
 
 function renderDataList() {
     let elDataList = document.querySelector('datalist');

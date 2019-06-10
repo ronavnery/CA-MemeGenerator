@@ -29,6 +29,7 @@ function saveImages() {
 function loadImages() {
     try {
         gImgs = loadFromStorage('images')
+        gImgs = loadFromStorage('images')
     }
     catch (err) {
         console.log('load from storage failed. error:', err)

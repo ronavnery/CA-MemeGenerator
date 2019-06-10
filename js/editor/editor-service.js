@@ -29,18 +29,18 @@ function addNewLine() {
 
 // move to future editor service
 function createLine() {
-    if (gMemeNumOfLines === 1) var locY = gCanvas.height * 0.125;
-    else if (gMemeNumOfLines === 2) var locY = gCanvas.height * 0.875;
+    if (gMemeNumOfLines === 1) var locY = gCanvas.height * 0.15;
+    else if (gMemeNumOfLines === 2) var locY = gCanvas.height * 0.9;
     else var locY = gCanvas.height / 2
     gMemeNumOfLines++;
-    // console.log('canvas on create line is', gCanvas.width)
+    console.log('font size is', gCanvas.height / 10)
     return {
         locX: gCanvas.width / 2,
         locY: locY,
         width: getCurrLineWidth(),
         txt: '',
         fontFamily: 'Impact',
-        size: 20,
+        size: gCanvas.height / 10,
         align: 'center',
         color: 'white'
     }
