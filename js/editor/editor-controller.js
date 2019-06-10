@@ -5,7 +5,7 @@ let gCtx;
 let gTxt;
 let gSavedMemes;
 let gId = 1;
-var gNewId = 1
+let gNewId = 1
 
 function initEditor() {
     gSavedMemes = loadFromStorage('editedImg')
@@ -51,11 +51,10 @@ function printImgOnCanvas() {
 
 function onTxtInput(el) {
     let txt = el.value;
-    // Nathalie: Add functions for alignment(left-right), alignment(up-down), color, font-family,
-    // pickColor();
     setTxtToCurrLine(txt)
     onChangeFontFamily()
     onPickColor(gCurrLine.color)
+    getCurrLineWidth()
     setTxt(txt)
     draw();
 }
@@ -72,13 +71,11 @@ function onChangeFontFamily() {
     draw()
 }
 
-// Nathalie: Add function to clear line from gMeme model and draw 
-
 function draw() {
     drawCanvas();
     printImgOnCanvas();
     gMeme.txts.forEach(txt => {
-        drawText(txt.txt, txt.locX, txt.locY, txt.color, txt.size, txt.fontFamily)
+        drawText(txt.txt, txt.locX, txt.locY, txt.color, txt.size, txt.fontFamily, txt.align, txt.lineWidth)
     }
     );
 }
@@ -86,7 +83,6 @@ function draw() {
 
 // function drawText(txt, x, y, color) {
 //     gCtx.restore()
-//     gCtx.textAlign = 'center';
 //     gCtx.font = '40px Impact';
 //     gCtx.lineWidth = 5;
 //     gCtx.strokeStyle = 'black';
@@ -96,9 +92,11 @@ function draw() {
 //     printAt(gCtx, txt, x, y, gCanvas.height - (gCanvas.height * 0.875), gCanvas.width - (gCanvas.width * 0.125))
 // }
 
-function drawText(txt, x, y, color, fontSize, fontFamily) {
+function drawText(txt, x, y, color, fontSize, fontFamily, align) {
     gCtx.restore()
     gCtx.textAlign = 'center';
+    gCtx.Align = align;
+    
     gCtx.font = `${fontSize + 30}px ${fontFamily}`;
     gCtx.lineWidth = 5;
     gCtx.strokeStyle = 'black';
@@ -116,15 +114,13 @@ function onPickColor(color) {
 function onAddNewLine() {
     // console.log('canvas width on Add new line is ', gCanvas.width)
     addNewLine();
-    let elInput = document.querySelector('#meme-text-input');
-    elInput.focus();
-    elInput.value = '';
+    focusTxtInput()
+
 }
 
 function onSwitchLine() {
     switchLine();
-    let elInput = document.querySelector('#meme-text-input');
-    elInput.value = gCurrLine.txt;
+    focusTxtInput()
 }
 
 function onClickCanvas(ev) {
@@ -136,16 +132,14 @@ function onClickCanvas(ev) {
             // console.log('hit');
             // console.log('idx is', idx)
             switchLine(idx);
-            let elInput = document.querySelector('#meme-text-input');
-            elInput.value = gCurrLine.txt;
-            elInput.focus();
+            focusTxtInput()
         }
     })
 }
 
 function onSaveToGalery() {
 
-    var imgContent = gCanvas.toDataURL('image/jpeg');
+    let imgContent = gCanvas.toDataURL('image/jpeg');
     if (!gSavedMemes) {
         gSavedMemes = []
     }
@@ -160,10 +154,25 @@ function onChangeFontSize(el) {
 
 function onAlignText(el) {
     alignText(el)
-
     draw()
 }
 
-function onDownloadImg(el){
-    downloadImg(el) 
+function onDownloadImg(el) {
+    downloadImg(el)
+}
+
+function onDeleteLine() {
+    deleteLine()
+    focusTxtInput()
+    draw()
+}
+
+function focusTxtInput() {
+    let elInput = document.querySelector('#meme-text-input');
+    elInput.focus();
+    if (gCurrLine) {
+        if (gCurrLine.txt === '') elInput.value = '';
+        else elInput.value = gCurrLine.txt;
+
+    }
 }

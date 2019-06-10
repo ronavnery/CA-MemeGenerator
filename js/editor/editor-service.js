@@ -9,7 +9,6 @@ function pickColor(color) {
     gCurrLine.color = color
     // if (color === undefined) gCurrLine.color
     // else gCurrLine.color = color;
-
     draw();
 }
 
@@ -38,16 +37,17 @@ function createLine() {
     return {
         locX: gCanvas.width / 2,
         locY: locY,
+        width: getCurrLineWidth(),
         txt: '',
         fontFamily: 'Impact',
         size: 20,
-        align: 'left',
+        align: 'center',
         color: 'white'
     }
 }
 
 // move to future editor service
-function switchLine(lineIdx='none') {
+function switchLine(lineIdx = 'none') {
     // moves to specified line idx if given as parameter, else, goes one forward
     if (lineIdx !== 'none') {
         gCurrLine = gMeme.txts[lineIdx];
@@ -68,34 +68,42 @@ function setCurrLineFontFamily(fontFamily) {
 
 }
 
+function getCurrLineWidth() {
+    if (!gCurrLine) return
+    gCurrLine.width = gCtx.measureText(gCurrLine.txt).width;
+}
 
 function changeFontSize(el) {
     if (el === 'bigger') gCurrLine.size += 2
     else gCurrLine.size -= 2
 }
 
-function alignText(el){
-    const x = gCanvas.width / 2;
+function alignText(el) {
+    const halfWidth = gCanvas.width / 2;
     if (el === 'left-aligned') {
         console.log(el);
-        
-        gCtx.textAlign = 'left';
-        gCurrLine.align = gCtx.fillText(gMeme.txts[0].txt, x, 90);
+
+        gCurrLine.align = 'left';
+        // gCtx.fillText('left-aligned', halfWidth, 80);
+        gCurrLine.locX = 50;
     }
 
     else if (el === 'center-aligned') {
-        gCtx.textAlign = 'center';
-        gCtx.fillText(gMeme.txts[0].txt, x, 85);
+        gCurrLine.align = 'center';
+        gCurrLine.locX = 200;
     }
     else {
-        gCtx.textAlign = 'right';
-        gCtx.fillText(gMeme.txts[0].txt, x, 130);
+        gCurrLine.align = 'right';
+        gCtx.fillText('right-aligned', halfWidth, 350);
+        gCurrLine.locX = 320;
     }
 }
 
-
-
 function downloadImg(elLink) {
-    var imgContent = gCanvas.toDataURL('image/jpeg');
+    let imgContent = gCanvas.toDataURL('image/jpeg');
     elLink.href = imgContent
+}
+
+function deleteLine() {
+    gCurrLine.txt = ''
 }

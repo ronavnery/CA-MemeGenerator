@@ -3,6 +3,7 @@ body {
     background-size: cover;
     margin: 0;
     background-color: rgba(11, 121, 211, 0.8);
+    /* overflow: hidden; */
 }
 
 button, select {
@@ -191,6 +192,9 @@ footer {
 
 #download-file::before {
     content: url('../img/svgs/download-file.svg');
+}
+#trash::before {
+    content: url('../img/svgs/trash.svg');
 }
 
 /* Canvas */

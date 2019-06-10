@@ -1,5 +1,4 @@
 'use strict'
-console.log('controller ready');
 
 let gSavedMemes;
 
@@ -15,7 +14,6 @@ function renderGallery() {
     let elGallery = document.querySelector('.collection');
     let htmlStr = '';
     // let images = getImagesForDisplay();
-
     gSavedMemes.forEach(img => {
         htmlStr += genGalleryItemHtml(img.id, img.src);
     })
@@ -37,18 +35,12 @@ function genGalleryItemHtml(id, src) {
     </section>`
 }
 
-
-
 function onDeleteImg(el) {
-    console.log(el)
-    var imgId = el.dataset.id
-    deleteImg(imgId);
+    let imgId = el.dataset.id
+        deleteImg(imgId);
     // renderGallery()
 }
 
-
 function onDownloadImg(elLink) {
-    console.log(elLink);
-    
     downloadImg(elLink)
 }

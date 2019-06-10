@@ -31,8 +31,8 @@ function onImgClick(el) {
     let src = el.getAttribute('src');
     drawCanvas();
     gMeme = createMeme(id, src);
-
     showEditorModal();
+    focusTxtInput()
     // Add img keywords to popular keywords list
     addKeywordsAsPopular(id);
 }
@@ -43,6 +43,8 @@ function hideEditorModal() {
     elEditModal.classList.add('hide');
     renderReflectiveGallery();
     // renderPopularList(); // Remove after we tranform editor modal into a page
+    focusTxtInput()
+    renderPopularList(); // Remove after we tranform editor modal into a page
 }
 
 function showEditorModal() {
