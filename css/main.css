@@ -102,6 +102,10 @@ footer {
     padding: 10px;
 }
 
+.txt-buttons a {
+    text-decoration: none;
+    color: black;
+}
 .svg-buttons {
     border-radius: 20%;
     margin: 5px;
