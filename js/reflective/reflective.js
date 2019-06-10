@@ -26,7 +26,7 @@ function renderReflectiveGallery(imgs = getImagesForDisplay(), isBase64 = false)
         row.classList.add('row');
         rows.push(row);
     }
-
+    
     let wall = document.getElementById('wall');
     for (let i = 0; i < IMAGES.length; i++) {
         let index = i % rows.length;
@@ -40,7 +40,7 @@ function renderReflectiveGallery(imgs = getImagesForDisplay(), isBase64 = false)
       <div class="reflection">
         <img src="${IMAGES[i]}">
       </div>
-    `;
+      `;
             row.appendChild(frame);
         } else {
             let img = document.createElement('img');

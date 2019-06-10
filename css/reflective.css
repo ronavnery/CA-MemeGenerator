@@ -13,7 +13,7 @@
     }
     .main-gallery > .header {
         padding: 0.5em;
-        margin: 0 3em;
+        margin: 0 0.5em;
     }
 
     .main-gallery > #wall > .row {
@@ -41,6 +41,7 @@
     .header span {
         display: inherit;
     }
+
 
 }
 
@@ -95,6 +96,26 @@ body {
     font-size: 0.75em;
     font-style: italic;
     text-transform: lowercase;
+}
+
+.popular-list > * {
+    cursor: pointer;
+}
+
+.popular-list > .popular-0 {
+    font-size: 1.5em;
+}
+
+.popular-list > .popular-1 {
+    font-size: 1em;
+}
+
+.popular-list > .popular-2 {
+    font-size: 0.8em;
+}
+
+.popular-list > .popular-3 {
+    font-size: 0.5em;
 }
 
 .social {

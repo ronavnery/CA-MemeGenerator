@@ -17,7 +17,7 @@ function handleImageFromInput(ev, onImageReady) {
         gUploadedFileSrc = img.src
         gMeme = createMeme(gNextId++, gUploadedFileSrc);
         
-        gImgs.unshift(createImg(img.src, []))
+        gSavedMemes.unshift(createImg(img.src, []))
 
     }
     reader.readAsDataURL(ev.target.files[0]);

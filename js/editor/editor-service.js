@@ -95,3 +95,11 @@ function downloadImg(elLink) {
 function deleteLine() {
     gCurrLine.txt = ''
 }
+
+function deleteMyMeme(imgId) {
+    let imgIdx = gSavedMemes.findIndex(img => { 
+        return img.id === +imgId
+     });
+    gSavedMemes.splice(imgIdx, 1);
+    saveImages();
+}

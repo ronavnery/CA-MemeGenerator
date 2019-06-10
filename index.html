@@ -12,20 +12,20 @@
 </head>
 
 <body onload="onInit()">
-        <!-- <section class="popular-list">popular searches list will go here</section> -->
-
-    <div class="main-gallery">
-        <div class="header">
-            <h1>Meme Boutique</h1><span>by Ron & Nathalie</span>
-            <section class="search"><input id="search-input" list="search-list" type="text" onchange
+        
+        <div class="main-gallery">
+            <div class="header">
+                <h1>Meme Boutique</h1><span>by Ron & Nathalie</span>
+                <section class="search"><input id="search-input" list="search-list" type="text" onchange
                     placeholder="Search..."></section>
-            <datalist id="search-list">
-            </datalist>
-            <button id="show-my-mimes" onclick="onShowMyMimes()">Show my mimes</button>
-        </div>
-        <div id="wall"></div>
-    </div>
-
+                    <input type="file" name="image" onchange="onFileInputChange(event)" />
+                    <div class="popular-list">popular searches list will go here</div>
+                    <datalist id="search-list">
+                    </datalist>
+                    <button id="show-my-mimes" onclick="onShowMyMimes()">Show my mimes</button>
+                </div>
+                <div id="wall"></div>
+            </div>
     <section class="editor-modal">
         <div class="modal-content ">
             <button class="close-modal-button" onclick="hideEditorModal()">Close</button>
@@ -58,6 +58,7 @@
                         <button onclick="onSaveToGalery()">Save To Meme Galery</button>
                         <button><a href="#" class="download-file" onclick="onDownloadImg(this)"
                                 download="my-meme.jpg">Download</a></button>
+                        <button class="delete-my-meme hide" onclick="onDeleteMyMeme(this)">Delete My Mime</button>
                     </section>
                 </div>
                 <canvas id="meme-canvas" width="400" height="400" onclick="onClickCanvas(event)">

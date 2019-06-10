@@ -70,7 +70,6 @@ function draw() {
     drawCanvas();
     printImgOnCanvas();
     gMeme.txts.forEach(txt => {
-        console.log('font size  on draw is', txt.size)
         drawText(txt.txt, txt.locX, txt.locY, txt.color, txt.size, txt.fontFamily, txt.align, txt.lineWidth)
     }
     );
@@ -151,4 +150,12 @@ function focusTxtInput() {
         if (gCurrLine.txt === '') elInput.value = '';
         else elInput.value = gCurrLine.txt;
     }
+}
+
+function onDeleteMyMeme(el) {
+    let imgId = el.dataset.id;
+    deleteMyMeme(imgId);
+    saveToStorage('editedImg', gSavedMemes)
+    hideEditorModal();
+    renderReflectiveGallery();
 }

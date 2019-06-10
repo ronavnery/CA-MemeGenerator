@@ -112,7 +112,7 @@ function createImg(src, keywords) {
 }
 
 function getImagesForDisplay() {
-    if (gIsSearchOn) return gSearchResults;
+    if (gIsSearchOn || gIsPopularKeywordPressed) return gSearchResults;
     else return gImgs;
 }
 
@@ -157,7 +157,8 @@ function getMostPopularSearches() {
     // Pushes to a new array the highest 6 values.
     let mostPopularSearches = [];
     let top;
-    for (let i = 0; i < 6; i++) {
+    let maxWords = 4;
+    for (let i = 0; i < maxWords; i++) {
         top = Object.keys(res).reduce((a, b) => res[a] > res[b] ? a : b);
         res[top] = 0;
         mostPopularSearches.push(top);

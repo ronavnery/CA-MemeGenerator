@@ -1,6 +1,7 @@
 'use strict';
 
 let gIsSearchOn;
+let gIsPopularKeywordPressed;
 let gIsShowingMyMemes;
 
 function onInit() {
@@ -9,7 +10,7 @@ function onInit() {
     hideEditorModal();
     addEventListeners();
     renderDataList();
-    // renderPopularList();
+    renderPopularList();
 }
 
 function addEventListeners() {
@@ -39,14 +40,17 @@ function onImgClick(el) {
     gCurrLine.locY = gCanvas.height * 0.125;
     gCurrLine.locX = gCanvas.width / 2;
     addKeywordsAsPopular(id); // Add img keywords to popular keywords list
+    let elDeleteMyMemeBtn = document.querySelector('.delete-my-meme');
+    if (gIsShowingMyMemes) elDeleteMyMemeBtn.classList.remove('hide');
 }
- 
+
 function hideEditorModal() {
     document.querySelector('.main-gallery').classList.remove('hide');
     let elEditModal = document.querySelector('.editor-modal');
     elEditModal.classList.add('hide');
     renderReflectiveGallery();
     focusTxtInput()
+    renderPopularList();
 }
 
 function showEditorModal() {
@@ -67,35 +71,49 @@ function renderDataList() {
 
 }
 
-// function renderPopularList() {
-//     let elPopularList = document.querySelector('.popular-list');
-//     let allWordsAsEls = []
-//     let mostPopularSearches = getMostPopularSearches();
-//     for (let i = 0; i < mostPopularSearches.length; i++) {
-//         allWordsAsEls.push(`<span class="popular-${i}">${mostPopularSearches[i]}</span>`)
-//     }
+function renderPopularList() {
+    let elPopularList = document.querySelector('.popular-list');
+    let allWordsAsEls = []
+    let mostPopularSearches = getMostPopularSearches();
+    for (let i = 0; i < mostPopularSearches.length; i++) {
+        allWordsAsEls.push(`<span onclick="onPopularClick(this)" class="popular-${i}">${mostPopularSearches[i]}</span>`)
+    }
 
-//     // Rendering the list in a random order
-//     let strHtml = '';
-//     let randomUniqueNumList = genRandomUniqueNumList(allWordsAsEls.length);
-//     randomUniqueNumList.forEach(num => {
-//         strHtml += allWordsAsEls[num];
-//     })
-//     elPopularList.innerHTML = strHtml
-// }
+    // Rendering the list in a random order
+    let strHtml = '';
+    let randomUniqueNumList = genRandomUniqueNumList(allWordsAsEls.length);
+    randomUniqueNumList.forEach(num => {
+        strHtml += allWordsAsEls[num];
+    })
+    elPopularList.innerHTML = strHtml
+}
 
 function onShowMyMimes() {
     let elShowMyMimesBtn = document.querySelector('#show-my-mimes');
+    // If already showing my memes:
     if (gIsShowingMyMemes) {
         elShowMyMimesBtn.innerHTML = 'Show my mimes';
         renderReflectiveGallery();
         gIsShowingMyMemes = false;
         return;
     }
+    // If on gallery:
     elShowMyMimesBtn.innerHTML = 'Return to gallery';
     gIsShowingMyMemes = true;
     renderReflectiveGallery(gSavedMemes, true);
     if (!gSavedMemes || !gSavedMemes.length) {
         document.querySelector('.collection').innerHTML = '<h1>Nothing ready yet... Go Edit some memes!</h1>'
     }
+    let crudImages = document.querySelectorAll('img');
+    crudImages.forEach(img => img.classList.add('my-meme-crud'))
+}
+
+function onPopularClick(el) {
+    gIsPopularKeywordPressed = true;
+    let keyword = el.innerHTML;
+    let elSearchInput = document.querySelector('#search-input');
+    elSearchInput.value = keyword;
+    searchImg(keyword)
+    renderReflectiveGallery();
+    gIsPopularKeywordPressed = false;
 }
