@@ -159,7 +159,7 @@ footer {
 }
 
 #trash::before {
-    content: url('../img/svgs/trash.svg');
+    content: url('../img/svgs/trash_2.svg');
 }
 
 /* Canvas */

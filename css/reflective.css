@@ -29,6 +29,14 @@
 
     .input-container {
         order: 1;
+        width: 100vh;
+        height: max-content;
+        margin: 0;
+    }
+
+    canvas {
+        width: 70vw;
+        height: 70vw;
     }
 }
 
@@ -58,7 +66,15 @@
     footer {
         bottom: -38px;
     }
+    canvas {
+        width: unset;
+        height: unset;
+    }
 
+    .input-container {
+        width: 50vw;
+        height: max-content;
+    }
 
 }
 
