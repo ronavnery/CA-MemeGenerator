@@ -48,6 +48,8 @@ function hideEditorModal() {
     document.querySelector('.main-gallery').classList.remove('hide');
     let elEditModal = document.querySelector('.editor-modal');
     elEditModal.classList.add('hide');
+    let elFooter = document.querySelector('footer');
+    elFooter.classList.remove('hide');
     renderReflectiveGallery();
     focusTxtInput()
     renderPopularList();
@@ -57,6 +59,8 @@ function showEditorModal() {
     document.querySelector('.main-gallery').classList.add('hide');
     let elEditModal = document.querySelector('.editor-modal');
     elEditModal.classList.remove('hide');
+    let elFooter = document.querySelector('footer');
+    elFooter.classList.add('hide');
     initEditor();
 }
 

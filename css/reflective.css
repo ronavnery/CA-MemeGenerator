@@ -26,6 +26,10 @@
     footer {
         bottom: -115px;
     }
+
+    .input-container {
+        order: 1;
+    }
 }
 
 @media (min-width: 700px) {
