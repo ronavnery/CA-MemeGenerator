@@ -13,7 +13,7 @@
     }
     .main-gallery > .header {
         padding: 0.5em;
-        margin: 0 0.5em;
+        margin: 0 4em;
     }
 
     .main-gallery > #wall > .row {
@@ -21,6 +21,10 @@
     }
     .header span {
         display: none;
+    }
+
+    footer {
+        bottom: -115px;
     }
 }
 
@@ -40,6 +44,15 @@
     }
     .header span {
         display: inherit;
+    }
+
+    .main-gallery > .header {
+        padding: 0.5em;
+        margin: 0 0.5em;
+    }
+
+    footer {
+        bottom: -38px;
     }
 
 
