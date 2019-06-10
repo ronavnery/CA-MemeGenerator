@@ -26,13 +26,15 @@ function addEventListeners() {
 }
 
 function onImgClick(el) {
-    
+    // debugger
     let id = el.getAttribute('data-id');
     let src = el.getAttribute('src');
     drawCanvas();
     gMeme = createMeme(id, src);
     showEditorModal();
     focusTxtInput()
+    gCurrLine.locY = gCanvas.height * 0.125;
+    gCurrLine.locX = gCanvas.width / 2;
     // Add img keywords to popular keywords list
     addKeywordsAsPopular(id);
 }

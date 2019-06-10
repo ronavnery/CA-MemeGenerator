@@ -66,6 +66,7 @@ function loadPopularList() {
 }
 
 function createMeme(id, src, color) {
+ 
     gMemeNumOfLines = 1;
     return {
         selectedImgId: id,
