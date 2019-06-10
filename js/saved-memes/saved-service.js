@@ -1,6 +1,4 @@
 'use strict'
-console.log('service ready');
-
 
 function deleteImg(imgId){
     let ImgIdx = gSavedMemes.findIndex(function (img) { 
@@ -8,7 +6,6 @@ function deleteImg(imgId){
      });
     gSavedMemes.splice(ImgIdx, 1);
     saveImages();
-    // renderGallery()
     onInit()
 }
 

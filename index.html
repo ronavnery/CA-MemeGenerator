@@ -12,31 +12,11 @@
 </head>
 
 <body onload="onInit()">
-
-    <!-- <header class="flex justify-center flex-column align-center">
-        <nav>
-            <ul class="flex">
-                <li><a href="#">Home Page</a></li>
-                <li><a href="my-memes.html">My Meme Gallery</a></li>
-                <li><a href="about.html">About us</a></li>
-            </ul>
-        </nav>
-        <section class="search"><input id="search-input" list="search-list" type="text" onchange
-                placeholder="Search..."></section>
-        <datalist id="search-list">
-        </datalist>
-        <input type="file" name="image" onchange="onFileInputChange(event)" />
-
-    </header> -->
-
-    <!-- <main class="main-container">
-        <section class="popular-list">popular searches list will go here</section>
-        <section class="gallery"></section>
-    </main> -->
+        <!-- <section class="popular-list">popular searches list will go here</section> -->
 
     <div class="main-gallery">
         <div class="header">
-            <h1>Meme Generator+</h1><span>by Ron & Nathalie</span>
+            <h1>Meme Boutique</h1><span>by Ron & Nathalie</span>
             <section class="search"><input id="search-input" list="search-list" type="text" onchange
                     placeholder="Search..."></section>
             <datalist id="search-list">
@@ -45,8 +25,6 @@
         </div>
         <div id="wall"></div>
     </div>
-
-
 
     <section class="editor-modal">
         <div class="modal-content ">
@@ -59,7 +37,7 @@
                     <div class="font-size-container">
                         <button class="svg-buttons" id="bigger" onclick="onChangeFontSize(this.id)"></button>
                         <button class="svg-buttons" id="smaller" onclick="onChangeFontSize(this.id)"></button>
-                        <button class="align-button svg-buttons" id="left-aligned" onclick="onAlignText(this.id)"></button>
+                        <button class="align-button svg-buttons" id="direction-arrow" onclick="onAlignText(this.id)"></button>
                         <button class="align-button svg-buttons" id="up-aligned" onclick="onAlignText(this.id)"></button>
                         <button class="align-button svg-buttons" id="down-aligned" onclick="onAlignText(this.id)"></button>
                         <button class="align-button svg-buttons" id="right-aligned" onclick="onAlignText(this.id)"></button>
@@ -94,7 +72,6 @@
         Ron & Nathalie
     </footer> -->
 
-    <script src="jquery/jquery.js"></script>
     <script src="js/editor/jscolor.js"></script>
     <script src="js/util/util.js"></script>
     <script src="js/editor/editor-controller.js"></script>

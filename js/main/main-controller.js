@@ -30,7 +30,6 @@ function addEventListeners() {
 }
 
 function onImgClick(el) {
-    // debugger
     let id = el.getAttribute('data-id');
     let src = el.getAttribute('src');
     drawCanvas();
@@ -39,8 +38,7 @@ function onImgClick(el) {
     focusTxtInput()
     gCurrLine.locY = gCanvas.height * 0.125;
     gCurrLine.locX = gCanvas.width / 2;
-    // Add img keywords to popular keywords list
-    addKeywordsAsPopular(id);
+    addKeywordsAsPopular(id); // Add img keywords to popular keywords list
 }
  
 function hideEditorModal() {
@@ -48,16 +46,13 @@ function hideEditorModal() {
     let elEditModal = document.querySelector('.editor-modal');
     elEditModal.classList.add('hide');
     renderReflectiveGallery();
-    // renderPopularList(); // Remove after we tranform editor modal into a page
     focusTxtInput()
-    // renderPopularList(); // Remove after we tranform editor modal into a page
 }
 
 function showEditorModal() {
     document.querySelector('.main-gallery').classList.add('hide');
     let elEditModal = document.querySelector('.editor-modal');
     elEditModal.classList.remove('hide');
-
     initEditor();
 }
 
@@ -89,9 +84,7 @@ function renderDataList() {
 //     elPopularList.innerHTML = strHtml
 // }
 
-function onShowMyMimes(ev) {
-    console.log('x', ev.x, 'y', ev.y);
-    
+function onShowMyMimes() {
     let elShowMyMimesBtn = document.querySelector('#show-my-mimes');
     if (gIsShowingMyMemes) {
         elShowMyMimesBtn.innerHTML = 'Show my mimes';
@@ -105,5 +98,4 @@ function onShowMyMimes(ev) {
     if (!gSavedMemes || !gSavedMemes.length) {
         document.querySelector('.collection').innerHTML = '<h1>Nothing ready yet... Go Edit some memes!</h1>'
     }
-
 }

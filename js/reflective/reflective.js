@@ -1,6 +1,4 @@
-
-
-// setTimeout(renderReflectiveGallery, 1000);
+'use strict';
 
 function renderReflectiveGallery(imgs = getImagesForDisplay(), isBase64 = false) {
     let isBelow700 = window.matchMedia("(max-width: 700px)").matches
@@ -71,11 +69,6 @@ function renderReflectiveGallery(imgs = getImagesForDisplay(), isBase64 = false)
             if (callNow) func.apply(context, args);
         };
     };
-
-
-
-      
-
     let scrollPosition = 0;
     let scrollWall = debounce((event) => {
         scrollPosition -= event.deltaY;
@@ -83,7 +76,6 @@ function renderReflectiveGallery(imgs = getImagesForDisplay(), isBase64 = false)
     }, 10);
 
     window.addEventListener('wheel', scrollWall);
-
 }
 
 

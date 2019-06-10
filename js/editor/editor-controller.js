@@ -12,18 +12,13 @@ function initEditor() {
     if (!gSavedMemes || !gSavedMemes.length) {
         gSavedMemes = []
     }
-
     printImgOnCanvas()
     gCurrLine = gMeme.txts[0] // move to controller service
-    // let elInput = document.querySelector('#meme-text-input');
-    // elInput.focus();
-    // elInput.value = '';
 }
 
 function drawCanvas() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d');
-    // console.log('canvas width on draw canvas is', gCanvas.width)
 }
 
 function printImgOnCanvas() {
@@ -81,18 +76,6 @@ function draw() {
     );
 }
 
-
-// function drawText(txt, x, y, color) {
-//     gCtx.restore()
-//     gCtx.font = '40px Impact';
-//     gCtx.lineWidth = 5;
-//     gCtx.strokeStyle = 'black';
-//     gCtx.fillStyle = color;
-//     gCtx.lineJoin = 'round';
-//     gCtx.save()
-//     printAt(gCtx, txt, x, y, gCanvas.height - (gCanvas.height * 0.875), gCanvas.width - (gCanvas.width * 0.125))
-// }
-
 function drawText(txt, x, y, color, fontSize, fontFamily, align) {
     gCtx.restore()
     gCtx.textAlign = 'center';
@@ -112,7 +95,6 @@ function onPickColor(color) {
 }
 
 function onAddNewLine() {
-    // console.log('canvas width on Add new line is ', gCanvas.width)
     addNewLine();
     focusTxtInput()
 
@@ -124,15 +106,9 @@ function onSwitchLine() {
 }
 
 function onClickCanvas(ev) {
-    console.log('x', ev.offsetX, 'y', ev.offsetX);
-    
     let clickPosY = ev.offsetY
-    // console.log('click pos is posY:', clickPosY)
     gMeme.txts.forEach((txt, idx) => {
-        // console.log(txt.locY)
         if (clickPosY <= txt.locY && clickPosY >= (txt.locY - (txt.size + 10))) {
-            // console.log('hit');
-            // console.log('idx is', idx)
             switchLine(idx);
             focusTxtInput()
         }
@@ -140,7 +116,6 @@ function onClickCanvas(ev) {
 }
 
 function onSaveToGalery() {
-
     let imgContent = gCanvas.toDataURL('image/jpeg');
     if (!gSavedMemes) {
         gSavedMemes = []
@@ -175,6 +150,5 @@ function focusTxtInput() {
     if (gCurrLine) {
         if (gCurrLine.txt === '') elInput.value = '';
         else elInput.value = gCurrLine.txt;
-
     }
 }

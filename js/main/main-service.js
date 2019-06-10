@@ -29,10 +29,9 @@ function saveImages() {
 function loadImages() {
     try {
         gImgs = loadFromStorage('images')
-        gImgs = loadFromStorage('images')
     }
     catch (err) {
-        console.log('load from storage failed. error:', err)
+        console.log('Load from storage failed. error:', err)
         gImgs = createImgs();
     }
     finally {
@@ -47,7 +46,6 @@ function loadMyMemes() {
 }
 
 function savePopularList() {
-    console.log('saving');
     saveToStorage('popular-list', gMostPopularKeywords);
 }
 
@@ -56,7 +54,7 @@ function loadPopularList() {
         gMostPopularKeywords = loadFromStorage('popular-list');
     }
     catch (err) {
-        console.log('popular list load from storage failed. error:', err)
+        console.log('Popular list load from storage failed. error:', err)
         gMostPopularKeywords = getInitialPopularList();
     }
     finally {
@@ -66,8 +64,9 @@ function loadPopularList() {
     }
 }
 
-function createMeme(id, src, color) {
- 
+// Gallery features
+
+function createMeme(id, src) {
     gMemeNumOfLines = 1;
     return {
         selectedImgId: id,
@@ -82,7 +81,6 @@ function createImgs() {
         createImg('img/memes/Ancient-Aliens.jpg', ['weird', 'happy', 'funny']),
         createImg('img/memes/baby-suprised.jpg', ['cute', 'baby', 'funny']),
         createImg('img/memes/basketball-kiss.jpg', ['funny', 'sport', 'basketball']),
-        createImg('img/memes/dog-stretch.jpg', ['cute', 'animals']),
         createImg('img/memes/dr-evil.jpg', ['funny', 'movie']),
         createImg('img/memes/hecht.jpg', ['funny', 'israel', 'people']),
         createImg('img/memes/heidi.jpg', ['happy', 'series']),
@@ -101,7 +99,6 @@ function createImgs() {
         createImg('img/memes/survivor.jpg', ['survivor', 'tv', 'series']),
         createImg('img/memes/thinking-purple.jpg', ['purple', 'willi', 'wanka', 'movie']),
         createImg('img/memes/toy-story.jpg', ['toy', 'story', 'movie']),
-        createImg('img/memes/trump-rock.jpg', ['trump', 'funny', 'politics']),
         createImg('img/memes/trump.jpg', ['trump', 'funny', 'politics']),
     ]
 }
@@ -119,7 +116,7 @@ function getImagesForDisplay() {
     else return gImgs;
 }
 
-// Search Function
+// Search feature
 
 function searchImg(searchTerm) {
     gSearchResults = gImgs.filter(img => {
@@ -142,6 +139,8 @@ function getKeywordsDataList(isUnique = true) {
         })
     } else return keywords;
 }
+
+// Popular keyword feature
 
 function getInitialPopularList() {
     return ['baby','baby', 'movie','movie','movie', 'politics','funny','funny','funny','funny']

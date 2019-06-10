@@ -1,12 +1,3 @@
-body {
-    background-image: url('../img/background/blue.jpg');
-    background-size: cover;
-    margin: 0;
-    background-color: rgba(11, 121, 211, 0.8);
-    /* overflow: hidden; */
-}
-
-
 button, select {
     background-color: rgba(255, 255, 255, 0.541);
     border: none;
@@ -21,35 +12,9 @@ button, img {
     cursor: pointer;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    width: max-content;
-}
-
-li {
-    margin: 0 20px;
-}
-
-.main-container {
-    width: 80vw;
-    margin: 0 auto;
-    border: 1px solid black;
-}
-
 /* ---Layout--- */
 
 /* Header */
-
-header {
-    height: 10vh;
-    border: 1px solid black;
-}
-
-nav {
-    height: max-content;
-}
 
 .input-container {
     margin: 20px;
@@ -60,27 +25,6 @@ nav {
     margin-bottom: 1em;
 }
 
-/* Gallery */
-
-.gallery {
-    max-width: 80vw;
-    margin: 0 auto;
-    padding: 10px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 150px));
-    grid-template-rows: repeat(auto-fill, minmax(100px, 150px));
-    grid-gap: 5px;
-}
-
-.gallery-item {
-    border: 1px solid black;
-}
-
-.gallery-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 /* Popular list */
 
@@ -118,24 +62,17 @@ nav {
 
 /* Footer */
 
-footer {
-    width: max-content;
-    margin: 0 auto;
-}
-
 /* Editor */
 
 .editor-modal {
     position: fixed;
     top: 0;
-    /* padding: 50px; */
     width: 100vw;
     max-height: 100vh;
     overflow-y: auto;
     margin: 0 auto;
     background-color: rgba(0, 0, 0, 0.8);
     border: 1px solid black;
-
 }
 
 .close-modal-button {
@@ -175,13 +112,13 @@ footer {
     height: 50px;
 }
 
-#left-aligned::before {
-    content: url('../img/svgs/left-aligned.svg');
+#direction-arrow::before {
+    content: url('../img/svgs/direction-arrow.svg');
 }
 
 
 #right-aligned::before {
-    content: url('../img/svgs/left-aligned.svg');
+    content: url('../img/svgs/direction-arrow.svg');
 }
 
 #right-aligned {
@@ -194,7 +131,7 @@ footer {
 }
 
 #up-aligned::before {
-    content: url('../img/svgs/left-aligned.svg');
+    content: url('../img/svgs/direction-arrow.svg');
 }
 
 #down-aligned {
@@ -202,10 +139,8 @@ footer {
 }
 
 #down-aligned::before {
-    content: url('../img/svgs/left-aligned.svg');
+    content: url('../img/svgs/direction-arrow.svg');
 }
-
-
 
 #bigger::before {
     content: url('../img/svgs/increase-font-size.svg');

@@ -23,11 +23,6 @@ function handleImageFromInput(ev, onImageReady) {
     reader.readAsDataURL(ev.target.files[0]);
 }
 
-
-// function getKeyWordsFromUser(){
-
-// }
-
 // on submit call to this function
 function uploadImg(elForm, ev) {
     ev.preventDefault();

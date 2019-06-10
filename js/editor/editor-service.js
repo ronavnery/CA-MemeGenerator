@@ -7,34 +7,26 @@ function pickColor(color) {
     if (color === undefined) gCurrLine.color
     else if (gCurrLine === undefined) gCurrLine = gMeme.txts[0];
     gCurrLine.color = color
-    // if (color === undefined) gCurrLine.color
-    // else gCurrLine.color = color;
     draw();
 }
 
-// move to future editor service
 function setTxtToCurrLine(txt) {
     gCurrLine.txt = txt;
 }
 
-// move to future editor service
 function addNewLine() {
     let line = createLine();
-    console.log('canvas width is', gCanvas.width)
     gMeme.txts.push(line);
     let newLineIdx = gMeme.txts.length - 1
     gCurrLine = gMeme.txts[newLineIdx];
-    console.log(gCurrLine);
 }
 
-// move to future editor service
 function createLine() {
     let locY;
     if (gMemeNumOfLines === 1)  locY = gCanvas.height * 0.125;
     else if (gMemeNumOfLines === 2)  locY = gCanvas.height * 0.875;
     else  locY = gCanvas.height / 2
     gMemeNumOfLines++;
-    console.log('font size is', gCanvas.height / 10)
     return {
         locX: gCanvas.width / 2,
         locY: locY,
@@ -47,9 +39,8 @@ function createLine() {
     }
 }
 
-// move to future editor service
 function switchLine(lineIdx = 'none') {
-    // moves to specified line idx if given as parameter, else, goes one forward
+    // Moves to specified line idx if given as parameter, else, goes one forward
     if (lineIdx !== 'none') {
         gCurrLine = gMeme.txts[lineIdx];
         return;
@@ -80,8 +71,7 @@ function changeFontSize(el) {
 }
 
 function alignText(el) {
-    // const halfWidth = gCurrLine.width / 2;
-    if (el === 'left-aligned') {
+    if (el === 'direction-arrow') {
         gCurrLine.locX -= 10;
     }
 
