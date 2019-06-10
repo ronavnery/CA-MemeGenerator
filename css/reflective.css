@@ -91,7 +91,7 @@ body {
     text-transform: uppercase;
 }
 
-.header span {
+.header span, .creators {
     padding: 0.25em;
     font-size: 0.75em;
     font-style: italic;
