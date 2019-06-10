@@ -47,6 +47,18 @@ button, img {
 
 /* Footer */
 
+footer {
+    position: relative;
+    color: white;
+    width: max-content;
+    margin: 0 auto;
+    padding: 0.25em;
+    font-size: 1em;
+    font-style: italic;
+    font-family: 'Raleway';
+    bottom: -38px;
+}
+
 /* Editor */
 
 .editor-modal {
