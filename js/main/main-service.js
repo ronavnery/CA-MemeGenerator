@@ -1,5 +1,5 @@
 'use strict';
-
+ 
 let gNextId = 0;
 let gImgs;
 let gMeme;
@@ -18,7 +18,12 @@ function save() {
 
 function load() {
     loadImages();
+    loadMyMemes();
     loadPopularList();
+}
+
+function saveImages() {
+    saveToStorage('images', gImgs)
 }
 
 function loadImages() {
@@ -36,8 +41,8 @@ function loadImages() {
     }
 }
 
-function saveImages() {
-    saveToStorage('images', gImgs)
+function loadMyMemes() {
+    gSavedMemes = loadFromStorage('editedImg')
 }
 
 function savePopularList() {

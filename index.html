@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +8,12 @@
     <title>Meme Generator - Nathalie & Ron</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/reflective.css" />
 </head>
 
 <body onload="onInit()">
 
-    <header class="flex justify-center flex-column align-center">
+    <!-- <header class="flex justify-center flex-column align-center">
         <nav>
             <ul class="flex">
                 <li><a href="#">Home Page</a></li>
@@ -26,20 +27,31 @@
         </datalist>
         <input type="file" name="image" onchange="onFileInputChange(event)" />
 
-    </header>
+    </header> -->
 
-    <main class="main-container">
+    <!-- <main class="main-container">
         <section class="popular-list">popular searches list will go here</section>
         <section class="gallery"></section>
-    </main>
+    </main> -->
+
+    <div class="main-gallery">
+        <div class="header">
+            <h1>Meme Generator+</h1><span>by</span><span>Ron & Nathalie</span>
+            <section class="search"><input id="search-input" list="search-list" type="text" onchange
+                    placeholder="Search..."></section>
+            <datalist id="search-list">
+            </datalist>
+            <button id="show-my-mimes" onclick="onShowMyMimes()">Show my mimes</button>
+        </div>
+        <div id="wall"></div>
+    </div>
+
+
 
     <section class="editor-modal">
         <div class="modal-content ">
             <button class="close-modal-button" onclick="hideEditorModal()">Close</button>
             <div class="modal-container flex wrap justify-center">
-                <canvas id="meme-canvas" width="400" height="400" onclick="onClickCanvas(event)">
-                    Update your browser to enjoy canvas!
-                </canvas>
                 <div class="input-container flex flex-column">
                     <input type="text" id="meme-text-input" id="theText" placeholder="Text"
                         onkeyup="onTxtInput(this)" />
@@ -47,33 +59,41 @@
                     <div class="font-size-container">
                         <button class="svg-buttons" id="bigger" onclick="onChangeFontSize(this.id)"></button>
                         <button class="svg-buttons" id="smaller" onclick="onChangeFontSize(this.id)"></button>
-                        <button class="align-button svg-buttons" id="left-aligned" onclick="onAlignText(this.id)"></button>
-                        <button class="align-button svg-buttons" id="center-aligned" onclick="onAlignText(this.id)"></button>
-                        <button class="align-button svg-buttons" id="right-aligned" onclick="onAlignText(this.id)"></button>
+                        <button class="align-button svg-buttons" id="left-aligned"
+                            onclick="onAlignText(this.id)"></button>
+                        <button class="align-button svg-buttons" id="center-aligned"
+                            onclick="onAlignText(this.id)"></button>
+                        <button class="align-button svg-buttons" id="right-aligned"
+                            onclick="onAlignText(this.id)"></button>
                     </div>
 
                     <section class="txt-buttons">
-                    <select id="change-font-family" onchange="onChangeFontFamily();">
-                        <option>Impact</option>
-                        <option>Ero</option>
-                        <option>Lato</option>
-                        <option>Major</option>
-                        <option>Verdana</option>
-                        <option>Lucida Sans Unicode</option>
-                    </select>
-                    <button onclick="onAddNewLine()">New Line</button>
-                    <button onclick="onSwitchLine()">Switch Line</button>
-                    <button onclick="onSaveToGalery()">Save To Meme Galery</button>
-                    <button><a href="#" class="download-file" onclick="onDownloadImg(this)" download="my-img.jpg">Download</a></button>
-                </section>
+                        <select id="change-font-family" onchange="onChangeFontFamily();">
+                            <option>Impact</option>
+                            <option>Ero</option>
+                            <option>Lato</option>
+                            <option>Major</option>
+                            <option>Verdana</option>
+                            <option>Lucida Sans Unicode</option>
+                        </select>
+                        <button onclick="onAddNewLine()">New Line</button>
+                        <button onclick="onSwitchLine()">Switch Line</button>
+                        <button onclick="onSaveToGalery()">Save To Meme Galery</button>
+                        <button><a href="#" class="download-file" onclick="onDownloadImg(this)"
+                                download="my-meme.jpg">Download</a></button>
+                    </section>
                 </div>
+                <canvas id="meme-canvas" width="400" height="400" onclick="onClickCanvas(event)">
+                    Update your browser to enjoy canvas!
+                </canvas>
             </div>
         </div>
     </section>
 
+    <!-- 
     <footer>
         Ron & Nathalie
-    </footer>
+    </footer> -->
 
     <script src="jquery/jquery.js"></script>
     <script src="js/editor/jscolor.js"></script>
@@ -83,6 +103,7 @@
     <script src="js/main/main-controller.js"></script>
     <script src="js/main/main-service.js"></script>
     <script src="js/upload-service/upload-service.js"></script>
+    <script src="js/reflective/reflective.js"></script>
 
 </body>
 

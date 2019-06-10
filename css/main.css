@@ -79,7 +79,6 @@ nav {
 /* Popular list */
 
 .popular-list {
-    border: 1px solid black;
     height: 150px;
 }
 
@@ -125,10 +124,12 @@ footer {
     top: 0;
     /* padding: 50px; */
     width: 100vw;
-    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
     margin: 0 auto;
     background-color: rgba(0, 0, 0, 0.8);
     border: 1px solid black;
+
 }
 
 .close-modal-button {
