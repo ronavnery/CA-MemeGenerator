@@ -113,6 +113,11 @@ footer {
     height: 50px;
 }
 
+.saved-to-gallery {
+    background-color: rgba(42, 199, 42, 0.692);
+    color: white;
+}
+
 #direction-arrow::before {
     content: url('../img/svgs/direction-arrow.svg');
 }

@@ -114,13 +114,19 @@ function onClickCanvas(ev) {
     })
 }
 
-function onSaveToGalery() {
+function onSaveToGallery() {
     let imgContent = gCanvas.toDataURL('image/jpeg');
     if (!gSavedMemes) {
         gSavedMemes = []
     }
     gSavedMemes.push({ id: gNewId++, src: imgContent })
     saveToStorage('editedImg', gSavedMemes)
+
+    let elSaveBtn = document.querySelector('#save-image-to-gallery');
+    elSaveBtn.classList.add('saved-to-gallery')
+    elSaveBtn.disabled = true;
+    elSaveBtn.innerHTML = 'Saved to gallery'
+
 }
 
 function onChangeFontSize(el) {
