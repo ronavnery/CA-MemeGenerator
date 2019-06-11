@@ -4,46 +4,39 @@
         -webkit-perspective: 250px;
         perspective: 250px;
     }
-    .main-gallery >  #wall {
+    .main-gallery>#wall {
         -webkit-transform: rotateY(0deg);
         transform: rotateY(0deg);
         overflow: auto;
         top: 145px;
         height: 500px;
     }
-    .main-gallery > .header {
+    .main-gallery>.header {
         padding: 0.3em;
         padding-top: 0.1em;
         /* margin: 0 em; */
     }
-
-    .main-gallery > #wall > .row {
+    .main-gallery>#wall>.row {
         height: 140px;
     }
-
     /* .header span {
         display: none;
     } */
-
     .header label {
         display: none;
     }
-
     .header {
         transform: scale(0.9)
     }
-
     footer {
         bottom: -115px;
     }
-
     .input-container {
         order: 1;
         width: 100vh;
         height: max-content;
         margin: 0;
     }
-
     canvas {
         width: 70vw;
         height: 70vw;
@@ -55,32 +48,28 @@
         -webkit-perspective: 500px;
         perspective: 500px;
     }
-    .main-gallery >  #wall {
+    .main-gallery>#wall {
         -webkit-transform: rotateY(45deg);
         transform: rotateY(45deg);
         overflow: unset;
         top: 0;
     }
-    .main-gallery > #wall > .row {
+    .main-gallery>#wall>.row {
         height: 250px;
     }
     .header span {
         display: inherit;
     }
-
     .header label {
         display: inherit;
     }
-
-    .main-gallery > .header {
+    .main-gallery>.header {
         padding: 0.5em;
         margin: 0 0.5em;
     }
-
     .header {
         transform: none;
     }
-
     footer {
         bottom: -38px;
     }
@@ -88,12 +77,10 @@
         width: unset;
         height: unset;
     }
-
     .input-container {
         width: 50vw;
         height: max-content;
     }
-
 }
 
 @media (min-width: 1200px) {
@@ -108,9 +95,7 @@
         -webkit-perspective: 2000px;
         perspective: 2000px;
     }
-    
 }
-
 
 body {
     background: #090909;
@@ -149,23 +134,23 @@ body {
     text-transform: lowercase;
 }
 
-.popular-list > * {
+.popular-list>* {
     cursor: pointer;
 }
 
-.popular-list > .popular-0 {
+.popular-list>.popular-0 {
     font-size: 1.5em;
 }
 
-.popular-list > .popular-1 {
+.popular-list>.popular-1 {
     font-size: 1em;
 }
 
-.popular-list > .popular-2 {
+.popular-list>.popular-2 {
     font-size: 0.8em;
 }
 
-.popular-list > .popular-3 {
+.popular-list>.popular-3 {
     font-size: 0.5em;
 }
 
@@ -214,7 +199,10 @@ body {
     transform: scale(1.2);
     z-index: 1;
     position: inherit;
+    transition: ease-in 0.2s;
 }
+
+
 
 #wall .row .frame {
     position: relative;
@@ -244,4 +232,3 @@ body {
 }
 
 /* Util */
-
