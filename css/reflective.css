@@ -77,6 +77,10 @@
         margin: 0 0.5em;
     }
 
+    .header {
+        transform: none;
+    }
+
     footer {
         bottom: -38px;
     }
